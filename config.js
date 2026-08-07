@@ -1,6 +1,6 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Base Currency: EUR (€) - Distinct prices, media files, and Order Bumps for each tier.
+ * Base Currency: EUR (€) - 4 Tiers with unique deliverable files, prices, and private chat access.
  */
 
 window.APP_CONFIG = {
@@ -22,6 +22,7 @@ window.APP_CONFIG = {
       avatar: "./assets/avatar.jpg",
       banner: "./assets/banner.jpg",
       verified: true,
+      privateChatUrl: "https://t.me/sophia_vip_private_chat", // Link do Chat Privado da Modelo
       bio: {
         "pt-PT": "Dashboard oficial de entrega de conteúdos digitais, pacotes de fotos HD e coleções de vídeo de alta resolução.",
         "en": "Official digital product delivery dashboard for exclusive HD media packs and video collections.",
@@ -33,7 +34,7 @@ window.APP_CONFIG = {
     }
   },
 
-  // 3 Distinct Product Tiers with Unique Deliverable Media Files & Prices
+  // 4 Product Tiers: Starter, VIP, Ultimate Vault, and 1-on-1 Private Chat Pass
   packages: [
     {
       id: "starter",
@@ -89,6 +90,21 @@ window.APP_CONFIG = {
         { name: "Design sem nome.mp4", size: "30.4 MB", url: "./Design sem nome.mp4" },
         { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
         { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", url: "#" }
+      ]
+    },
+    {
+      id: "chat",
+      name: "Acesso VIP Chat 1-on-1",
+      priceEUR: 99.99,
+      badge: "CHAT EXCLUSIVO",
+      isHighlighted: false,
+      stripeUrl: "https://buy.stripe.com/test_chat_link",
+      zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
+      zipFileSize: "Acesso Direto ao Chat Privado da Modelo",
+      itemCount: "Conversa Privada Direta com a Criadora + Acesso VIP",
+      files: [
+        { name: "Pass_Acesso_Chat_Privado.pdf", size: "120 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
+        { name: "Instrucoes_Entrada_Canal_VIP.txt", size: "5 KB", url: "#" }
       ]
     }
   ],

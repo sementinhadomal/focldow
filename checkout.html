@@ -115,7 +115,7 @@
     <h2 class="section-title" data-i18n="heroBadge">Conteúdo Digital Exclusivo</h2>
     <p class="section-subtitle" data-i18n="siteTitle">Selecione o seu pacote e obtenha acesso imediato após o pagamento.</p>
 
-    <!-- Package Cards Grid -->
+    <!-- Package Cards Grid (Now 4 Packages) -->
     <section class="packages-grid" id="packagesGrid">
       <!-- Dynamic Package Cards injected by JavaScript -->
     </section>
@@ -282,10 +282,13 @@
           title = t.ultimateTitle;
           subtitle = t.ultimateSubtitle;
           btnText = t.btnGetVault;
+        } else if (pkg.id === 'chat') {
+          title = t.chatTitle;
+          subtitle = t.chatSubtitle;
+          btnText = t.btnGetChat;
         }
 
         const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
-        // Dedicated page redirect fallback links
         const dedicatedPage = `download-${pkg.id}.html?lang=${currentLang}`;
         const stripeUrl = pkg.stripeUrl.startsWith('http') ? pkg.stripeUrl : dedicatedPage;
 
@@ -300,12 +303,18 @@
           </div>
 
           <ul class="features-list">
-            <li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
-            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
-            <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
-            <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>
-            ${pkg.id !== 'starter' ? `<li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>` : ''}
-            ${pkg.id === 'ultimate' ? `<li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>` : ''}
+            ${pkg.id === 'chat' 
+              ? `<li><span class="check-icon">✓</span> ${t.featPrivateChatAccess}</li>
+                 <li><span class="check-icon">✓</span> ${t.featInstantDownload}</li>
+                 <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
+                 <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>`
+              : `<li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
+                 <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
+                 <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
+                 <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>`
+            }
+            ${pkg.id === 'vip' || pkg.id === 'ultimate' ? `<li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>` : ''}
+            ${pkg.id === 'ultimate' || pkg.id === 'chat' ? `<li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>` : ''}
           </ul>
 
           <a href="${stripeUrl}" class="btn-cta ${pkg.isHighlighted ? 'btn-gold' : 'btn-primary'}">

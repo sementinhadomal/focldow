@@ -190,6 +190,7 @@
       const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
       const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
       const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
+      const chatPkg = APP_CONFIG.packages.find(p => p.id === 'chat');
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -228,27 +229,27 @@
       document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
 
-      // Render EXACTLY 2 Locked Cards for the Other 2 Packages (Deluxe VIP Pass & Starter HD Pack)
+      // Render Locked Cards (Chat 1-on-1 Pass & Deluxe VIP Pass)
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
-      const priceStarter = APP_CONFIG.formatPrice(starterPkg.priceEUR, currentLang);
       const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
+      const priceChat = APP_CONFIG.formatPrice(chatPkg ? chatPkg.priceEUR : 99.99, currentLang);
 
       const lockedOtherPackages = [
+        {
+          name: "Pass_Acesso_Chat_Privado.pdf",
+          size: "Acesso Chat Privado 1-on-1",
+          pkgName: t.chatTitle,
+          price: priceChat,
+          url: chatPkg ? chatPkg.stripeUrl : "download-chat.html"
+        },
         {
           name: "Design sem nome.mp4",
           size: "35.2 MB",
           pkgName: t.vipTitle,
           price: priceVip,
           url: vipPkg.stripeUrl
-        },
-        {
-          name: "STARTER_HD_PACK_BUNDLE.zip",
-          size: "2.8 MB",
-          pkgName: t.starterTitle,
-          price: priceStarter,
-          url: starterPkg.stripeUrl
         }
       ];
 

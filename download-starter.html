@@ -190,6 +190,7 @@
       const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
       const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
       const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
+      const chatPkg = APP_CONFIG.packages.find(p => p.id === 'chat');
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -229,6 +230,7 @@
 
       const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
       const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
+      const priceChat = APP_CONFIG.formatPrice(chatPkg ? chatPkg.priceEUR : 99.99, currentLang);
 
       const lockedOtherPackages = [
         {
@@ -236,16 +238,21 @@
           size: "35.2 MB",
           pkgName: t.vipTitle,
           price: priceVip,
-          url: vipPkg.stripeUrl,
-          icon: "🎬"
+          url: vipPkg.stripeUrl
         },
         {
           name: "ULTIMATE_VAULT_BONUS_MEDIA.zip",
           size: "1.2 GB",
           pkgName: t.ultimateTitle,
           price: priceUltimate,
-          url: ultimatePkg.stripeUrl,
-          icon: "📦"
+          url: ultimatePkg.stripeUrl
+        },
+        {
+          name: "Pass_Acesso_Chat_Privado.pdf",
+          size: "Acesso Chat Privado 1-on-1",
+          pkgName: t.chatTitle,
+          price: priceChat,
+          url: chatPkg ? chatPkg.stripeUrl : "download-chat.html"
         }
       ];
 
