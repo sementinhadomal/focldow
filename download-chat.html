@@ -6,74 +6,65 @@
   <title>Obrigado pela sua Compra — Chat Privado 1-on-1</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .hero-dash { text-align: center; padding: 30px 20px 10px; }
+    .hero-dash { text-align: center; padding: 24px 16px 10px; }
     .chat-access-card {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(245, 158, 11, 0.12));
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(245, 158, 11, 0.14));
       border: 2px solid var(--primary-gold);
-      box-shadow: 0 0 32px var(--primary-gold-glow);
+      box-shadow: 0 0 28px var(--primary-gold-glow);
       border-radius: var(--radius-lg);
-      padding: 36px 28px;
+      padding: 32px 20px;
       text-align: center;
-      margin: 32px 0 40px;
+      margin: 24px 0 32px;
     }
     .chat-icon-pulse {
-      font-size: 3.5rem;
-      margin-bottom: 12px;
+      font-size: 3rem;
+      margin-bottom: 10px;
       animation: pulseGlow 2s infinite alternate;
     }
     @keyframes pulseGlow {
-      0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-gold)); }
-      100% { transform: scale(1.1); filter: drop-shadow(0 0 25px var(--accent-purple)); }
+      0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-gold)); }
+      100% { transform: scale(1.08); filter: drop-shadow(0 0 20px var(--accent-purple)); }
     }
     .chat-title {
       font-family: var(--font-heading);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .chat-sub {
       color: var(--text-muted);
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto 24px;
+      font-size: 0.95rem;
+      max-width: 540px;
+      margin: 0 auto 20px;
     }
     .btn-chat-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       background: linear-gradient(135deg, var(--accent-purple), var(--accent-rose));
       color: #fff;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.25rem;
-      padding: 20px 40px;
+      font-size: 1.15rem;
+      padding: 16px 32px;
       border-radius: var(--radius-md);
       text-decoration: none;
-      box-shadow: 0 12px 32px var(--accent-purple-glow);
+      box-shadow: 0 10px 28px var(--accent-purple-glow);
       transition: all 0.3s ease;
+      width: 100%;
+      max-width: 480px;
     }
     .btn-chat-link:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 16px 40px rgba(236, 72, 153, 0.5);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(236, 72, 153, 0.5);
     }
-    .token-box {
-      background: rgba(0,0,0,0.4);
-      border: 1px dashed var(--border-glow);
-      padding: 12px 20px;
-      border-radius: var(--radius-sm);
-      display: inline-block;
-      margin-top: 20px;
-      font-family: monospace;
-      font-size: 0.95rem;
-      color: var(--primary-gold);
-    }
-    .walkthrough-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 28px 0 40px; }
-    .step-card { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-md); padding: 24px; position: relative; }
-    .step-num { background: var(--accent-purple); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); display: inline-block; margin-bottom: 12px; }
-    .step-card h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 8px; }
-    .step-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .walkthrough-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 20px 0 32px; }
+    .step-card { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-md); padding: 18px; position: relative; }
+    .step-num { background: var(--accent-purple); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: var(--radius-full); display: inline-block; margin-bottom: 10px; }
+    .step-card h4 { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 6px; }
+    .step-card p { color: var(--text-muted); font-size: 0.85rem; }
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-content { background: #12141d; border: 1px solid var(--border-glow); border-radius: var(--radius-lg); max-width: 600px; width: 100%; padding: 32px; max-height: 80vh; overflow-y: auto; position: relative; }
     .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
@@ -117,57 +108,51 @@
 
     <!-- Hero Section -->
     <div class="hero-dash">
-      <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.5rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Chat Privado 1-on-1 (99,99 €)</p>
+      <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.2rem;">Obrigado pela sua Compra!</h1>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 6px auto 0;">O seu painel pessoal de entrega — Chat Privado 1-on-1 (99,99 €)</p>
     </div>
 
-    <!-- MAIN EXCLUSIVE CHAT ACCESS CARD -->
+    <!-- MAIN DIRECT CHAT ACCESS CARD (NO ACCESS CODES) -->
     <div class="chat-access-card">
       <div class="chat-icon-pulse">💬</div>
-      <h2 class="chat-title">O Seu Acesso ao Chat Privado da Modelo está Liberado!</h2>
+      <h2 class="chat-title">O Seu Acesso ao Chat Privado está Liberado!</h2>
       <p class="chat-sub">
-        Clique no botão abaixo para abrir a conversa direta e iniciar a sua sessão no canal exclusivo:
+        Clique no botão abaixo para ser direcionado diretamente para a conversa com a modelo:
       </p>
 
       <a href="#" id="privateChatDirectBtn" class="btn-chat-link" target="_blank" rel="noopener">
-        <span data-i18n="btnEnterChat">💬 ENTRAR NO CHAT PRIVADO DA MODELO</span>
+        <span data-i18n="btnEnterChat">💬 FALAR COM A MODELO AGORA</span>
         <span>→</span>
       </a>
-
-      <div>
-        <div class="token-box">
-          🔑 Pass de Acesso VIP: <strong>VIP-CHAT-8942-SOPHIA</strong>
-        </div>
-      </div>
     </div>
 
     <!-- Walkthrough Guide -->
     <section>
-      <h2 class="section-title" data-i18n="walkthroughTitle" style="font-size: 1.6rem; text-align: left;">Guia de Acesso ao Chat</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="walkthroughSub">
-        Siga estes passos para iniciar a sua conversa privada:
+      <h2 class="section-title" data-i18n="walkthroughTitle" style="font-size: 1.4rem; text-align: left;">Como Aceder ao Chat</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem;" data-i18n="walkthroughSub">
+        Instruções simples de entrada:
       </p>
 
       <div class="walkthrough-grid">
         <div class="step-card">
           <span class="step-num">PASSO 1</span>
-          <h4>Passo 1: Clique no Botão Acima</h4>
-          <p>Utilize o botão destacado acima para ser direcionado instantaneamente para a app de chat privado.</p>
+          <h4>Passo 1: Clique no Botão</h4>
+          <p>Clique no botão destacado acima para abrir a conversa direta.</p>
         </div>
         <div class="step-card">
           <span class="step-num">PASSO 2</span>
-          <h4>Passo 2: Apresente o seu Pass VIP</h4>
-          <p>Ao abrir a conversa, envie a sua Chave de Acesso Pessoal (VIP-CHAT-8942-SOPHIA) para confirmação.</p>
+          <h4>Passo 2: Redirecionamento Direto</h4>
+          <p>O link abrirá diretamente o chat privado no seu aplicativo sem precisar de códigos.</p>
         </div>
         <div class="step-card">
           <span class="step-num">PASSO 3</span>
-          <h4>Passo 3: Acesso Direto</h4>
-          <p>Converse diretamente com a modelo em ambiente 100% privado e discreto.</p>
+          <h4>Passo 3: Inicie a Conversa</h4>
+          <p>Envie a sua primeira mensagem e aproveite o seu acesso exclusivo.</p>
         </div>
         <div class="step-card">
           <span class="step-num">PASSO 4</span>
-          <h4>Passo 4: Link Permanente</h4>
-          <p>Guarde esta página nos favoritos para aceder ao chat sempre que desejar.</p>
+          <h4>Passo 4: Acesso Permanente</h4>
+          <p>Guarde esta página nos favoritos para retornar ao chat sempre que quiser.</p>
         </div>
       </div>
     </section>
@@ -185,7 +170,7 @@
         <!-- LOCKED OTHER PACKAGES GRID -->
         <div class="locked-section-divider">
           <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
-          <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
+          <div style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 18px;" data-i18n="lockedSectionSub">
             Desbloqueie os outros pacotes de fotos e vídeos instantaneamente em 1 clique:
           </div>
 
@@ -196,7 +181,7 @@
     </section>
 
     <!-- Security Box -->
-    <section class="guarantee-box" style="max-width: 680px; margin: 32px auto 0;">
+    <section class="guarantee-box" style="max-width: 680px; margin: 24px auto 0;">
       <p id="guaranteeText" data-i18n="guaranteeText">
         🔒 Checkout 100% Seguro e Discreto via Stripe. Faturação neutra no seu extrato bancário (FÕCL MEDIA).
       </p>
@@ -205,7 +190,7 @@
   </main>
 
   <footer>
-    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;">
       <a href="#" onclick="openModal('terms'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="termsLink">Termos de Serviço</a>
       <a href="#" onclick="openModal('privacy'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="privacyLink">Política de Privacidade</a>
       <a href="#" onclick="openModal('refund'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="refundLink">Política de Reembolso</a>
@@ -260,7 +245,7 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      // Set Chat Link
+      // Direct Chat Link
       document.getElementById('privateChatDirectBtn').href = model.privateChatUrl || "https://t.me/sophia_vip_private_chat";
 
       // Render Unlocked Chat Files
@@ -283,7 +268,7 @@
         unlockedGrid.appendChild(card);
       });
 
-      // Render Locked Other Packages Grid (Ultimate Vault, Deluxe VIP, Starter Pack)
+      // Render Locked Other Packages Grid
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
