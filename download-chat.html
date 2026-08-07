@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obrigado pela sua Compra — Chat Privado 1-on-1</title>
+  <title>Obrigado pela sua Compra — VIP Diamond + Acervo Total</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     .hero-dash { text-align: center; padding: 24px 16px 10px; }
     .chat-access-card {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(245, 158, 11, 0.14));
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(245, 158, 11, 0.18));
       border: 2px solid var(--primary-gold);
-      box-shadow: 0 0 28px var(--primary-gold-glow);
+      box-shadow: 0 0 32px var(--primary-gold-glow);
       border-radius: var(--radius-lg);
       padding: 32px 20px;
       text-align: center;
-      margin: 24px 0 32px;
+      margin: 20px 0 28px;
     }
     .chat-icon-pulse {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 10px;
       animation: pulseGlow 2s infinite alternate;
     }
     @keyframes pulseGlow {
       0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-gold)); }
-      100% { transform: scale(1.08); filter: drop-shadow(0 0 20px var(--accent-purple)); }
+      100% { transform: scale(1.08); filter: drop-shadow(0 0 22px var(--accent-rose)); }
     }
     .chat-title {
       font-family: var(--font-heading);
@@ -35,7 +35,7 @@
     .chat-sub {
       color: var(--text-muted);
       font-size: 0.95rem;
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 auto 20px;
     }
     .btn-chat-link {
@@ -43,7 +43,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg, var(--accent-purple), var(--accent-rose));
+      background: linear-gradient(135deg, var(--accent-rose), var(--accent-purple));
       color: #fff;
       font-family: var(--font-heading);
       font-weight: 800;
@@ -51,14 +51,14 @@
       padding: 16px 32px;
       border-radius: var(--radius-md);
       text-decoration: none;
-      box-shadow: 0 10px 28px var(--accent-purple-glow);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.5);
       transition: all 0.3s ease;
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
     }
     .btn-chat-link:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 36px rgba(236, 72, 153, 0.5);
+      box-shadow: 0 14px 40px rgba(236, 72, 153, 0.7);
     }
     .walkthrough-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 20px 0 32px; }
     .step-card { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-md); padding: 18px; position: relative; }
@@ -82,7 +82,7 @@
   <header class="top-nav">
     <a href="checkout.html" class="brand-logo">
       <span>FÕCL MEDIA</span>
-      <span class="brand-badge">PRIVATE CHAT DELIVERY</span>
+      <span class="brand-badge">DIAMOND VIP DELIVERY</span>
     </a>
 
     <!-- Language Selector Dropdown -->
@@ -109,72 +109,48 @@
     <!-- Hero Section -->
     <div class="hero-dash">
       <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.2rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 6px auto 0;">O seu painel pessoal de entrega — Chat Privado 1-on-1 (99,99 €)</p>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 6px auto 0;">O seu painel pessoal Diamond — Chat Privado Prioritário + Acervo Total (99,99 €)</p>
     </div>
 
-    <!-- MAIN DIRECT CHAT ACCESS CARD (NO ACCESS CODES) -->
+    <!-- MAIN DIRECT CHAT ACCESS CARD -->
     <div class="chat-access-card">
-      <div class="chat-icon-pulse">💬</div>
-      <h2 class="chat-title">O Seu Acesso ao Chat Privado está Liberado!</h2>
+      <div class="chat-icon-pulse">💎</div>
+      <h2 class="chat-title">O Seu Acesso VIP Diamond ao Chat Privado está Liberado!</h2>
       <p class="chat-sub">
-        Clique no botão abaixo para ser direcionado diretamente para a conversa com a modelo:
+        Você possui resposta prioritária! Clique no botão abaixo para iniciar a sua conversa privada direta com Alice Ribeiro:
       </p>
 
       <a href="#" id="privateChatDirectBtn" class="btn-chat-link" target="_blank" rel="noopener">
-        <span data-i18n="btnEnterChat">💬 FALAR COM A MODELO AGORA</span>
+        <span data-i18n="btnEnterChat">💬 FALAR COM A MODELO AGORA (PRIORITÁRIO)</span>
         <span>→</span>
       </a>
     </div>
 
-    <!-- Walkthrough Guide -->
-    <section>
-      <h2 class="section-title" data-i18n="walkthroughTitle" style="font-size: 1.4rem; text-align: left;">Como Aceder ao Chat</h2>
-      <p style="color: var(--text-muted); font-size: 0.88rem;" data-i18n="walkthroughSub">
-        Instruções simples de entrada:
-      </p>
-
-      <div class="walkthrough-grid">
-        <div class="step-card">
-          <span class="step-num">PASSO 1</span>
-          <h4>Passo 1: Clique no Botão</h4>
-          <p>Clique no botão destacado acima para abrir a conversa direta.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 2</span>
-          <h4>Passo 2: Redirecionamento Direto</h4>
-          <p>O link abrirá diretamente o chat privado no seu aplicativo sem precisar de códigos.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 3</span>
-          <h4>Passo 3: Inicie a Conversa</h4>
-          <p>Envie a sua primeira mensagem e aproveite o seu acesso exclusivo.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 4</span>
-          <h4>Passo 4: Acesso Permanente</h4>
-          <p>Guarde esta página nos favoritos para retornar ao chat sempre que quiser.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- "YOUR DOWNLOADS" SECTION & OTHER PACKAGES LOCKED GRID -->
+    <!-- "YOUR DOWNLOADS" SECTION WITH ALL UNLOCKED MEDIA -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Grid of Unlocked Chat Documents -->
+        <!-- Master ZIP Download Button -->
+        <div style="margin-bottom: 24px; text-align: center;">
+          <a href="#" id="zipDownloadBtn" class="btn-file-download" style="padding: 14px 28px; font-size: 1.05rem; border-radius: var(--radius-md);" download target="_blank" rel="noopener">
+            <span data-i18n="btnDownloadZip">📦 Descarregar Acervo Completo Vault (.ZIP)</span>
+          </a>
+          <div style="color: var(--text-dim); font-size: 0.8rem; margin-top: 6px;">
+            <span data-i18n="dlFileSize">Quantidade de Mídias:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">Chat Privado Prioritário + Acervo Total Mídias 4K</strong>
+          </div>
+        </div>
+
+        <!-- Grid of Unlocked Diamond Files -->
         <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
-        <!-- LOCKED OTHER PACKAGES GRID -->
+        <!-- ALL UNLOCKED BADGE -->
         <div class="locked-section-divider">
-          <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
-          <div style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 18px;" data-i18n="lockedSectionSub">
-            Desbloqueie os outros pacotes de fotos e vídeos instantaneamente em 1 clique:
+          <div class="downloads-green-tag" style="text-align: center;" data-i18n="allUnlockedBadge">
+            ✨ PARABÉNS! TODOS OS FICHEIROS, CHAT E VÍDEOS ESTÃO 100% DESBLOQUEADOS!
           </div>
-
-          <div class="file-downloads-grid" id="lockedFilesGrid"></div>
         </div>
 
       </div>
@@ -246,9 +222,14 @@
       });
 
       // Direct Chat Link
-      document.getElementById('privateChatDirectBtn').href = model.privateChatUrl || "https://t.me/sophia_vip_private_chat";
+      document.getElementById('privateChatDirectBtn').href = model.privateChatUrl || "https://t.me/aliceribeiro_private_chat";
 
-      // Render Unlocked Chat Files
+      // Master ZIP Link
+      const zipBtn = document.getElementById('zipDownloadBtn');
+      zipBtn.href = chatPkg.zipDownloadUrl;
+      document.getElementById('zipFileSizeVal').innerText = chatPkg.zipFileSize;
+
+      // Render Unlocked Diamond Files
       const unlockedGrid = document.getElementById('unlockedFilesGrid');
       unlockedGrid.innerHTML = '';
 
@@ -256,7 +237,7 @@
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
         card.innerHTML = `
-          <div class="file-icon-box">💬</div>
+          <div class="file-icon-box">${file.name.includes('Chat') ? '💬' : '🎨'}</div>
           <div class="file-info-col">
             <div class="file-name-text" title="${file.name}">${file.name}</div>
             <div class="file-size-text">${file.size}</div>
@@ -266,34 +247,6 @@
           </a>
         `;
         unlockedGrid.appendChild(card);
-      });
-
-      // Render Locked Other Packages Grid
-      const lockedGrid = document.getElementById('lockedFilesGrid');
-      lockedGrid.innerHTML = '';
-
-      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== 'chat');
-
-      otherPackages.forEach(pkg => {
-        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
-        let titleName = pkg.name;
-        if (pkg.id === 'starter') titleName = t.starterTitle;
-        if (pkg.id === 'vip') titleName = t.vipTitle;
-        if (pkg.id === 'ultimate') titleName = t.ultimateTitle;
-
-        const card = document.createElement('div');
-        card.className = 'file-item-card locked-item';
-        card.innerHTML = `
-          <div class="file-icon-box locked-icon">🔒</div>
-          <div class="file-info-col">
-            <div class="file-name-text" title="${titleName}">${titleName}</div>
-            <div class="file-size-text" style="color: var(--primary-gold);">${pkg.zipFileSize}</div>
-          </div>
-          <a href="${pkg.stripeUrl}" class="btn-file-unlock" target="_blank" rel="noopener">
-            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${priceFormatted})
-          </a>
-        `;
-        lockedGrid.appendChild(card);
       });
     }
 

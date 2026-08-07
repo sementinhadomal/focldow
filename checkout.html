@@ -392,6 +392,41 @@
         const dedicatedPage = `download-${pkg.id}.html?lang=${currentLang}`;
         const stripeUrl = pkg.stripeUrl.startsWith('http') ? pkg.stripeUrl : dedicatedPage;
 
+        let featuresHtml = '';
+
+        if (pkg.id === 'starter') {
+          featuresHtml = `
+            <li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
+            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
+            <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
+            <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>
+          `;
+        } else if (pkg.id === 'vip') {
+          featuresHtml = `
+            <li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
+            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
+            <li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>
+            <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
+            <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>
+          `;
+        } else if (pkg.id === 'ultimate') {
+          featuresHtml = `
+            <li style="color: #f59e0b; font-weight: 700;"><span class="check-icon">💬</span> ${t.featPrivateChatAccess}</li>
+            <li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
+            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
+            <li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>
+            <li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>
+          `;
+        } else if (pkg.id === 'chat') {
+          featuresHtml = `
+            <li style="color: #ec4899; font-weight: 800;"><span class="check-icon">💎</span> ${t.featPrivateChatPriority}</li>
+            <li style="color: #22c55e; font-weight: 700;"><span class="check-icon">📦</span> ${t.featFullVaultIncluded}</li>
+            <li><span class="check-icon">✓</span> ${t.featInstantDownload}</li>
+            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
+            <li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>
+          `;
+        }
+
         card.innerHTML = `
           ${pkg.badge ? `<div class="card-badge">${pkg.badge}</div>` : ''}
           <h3 class="pkg-title">${title}</h3>
@@ -403,18 +438,7 @@
           </div>
 
           <ul class="features-list">
-            ${pkg.id === 'chat' 
-              ? `<li><span class="check-icon">✓</span> ${t.featPrivateChatAccess}</li>
-                 <li><span class="check-icon">✓</span> ${t.featInstantDownload}</li>
-                 <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
-                 <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>`
-              : `<li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
-                 <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
-                 <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
-                 <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>`
-            }
-            ${pkg.id === 'vip' || pkg.id === 'ultimate' ? `<li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>` : ''}
-            ${pkg.id === 'ultimate' || pkg.id === 'chat' ? `<li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>` : ''}
+            ${featuresHtml}
           </ul>
 
           <a href="${stripeUrl}" class="btn-cta ${pkg.isHighlighted ? 'btn-gold' : 'btn-primary'}">

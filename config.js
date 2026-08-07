@@ -1,6 +1,6 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Base Currency: EUR (€) - Model Name: Alice Ribeiro
+ * Model: Alice Ribeiro — High-Converting 4 Tier Pricing System
  */
 
 window.APP_CONFIG = {
@@ -39,7 +39,7 @@ window.APP_CONFIG = {
       id: "starter",
       name: "Pacote Inicial HD",
       priceEUR: 19.99,
-      badge: "POPULAR",
+      badge: "INICIAL",
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_starter_link",
       zipDownloadUrl: "./CLEAN_GRADE_LUT.cube",
@@ -56,7 +56,7 @@ window.APP_CONFIG = {
       name: "Pass Deluxe VIP",
       priceEUR: 39.99,
       badge: "RECOMENDADO",
-      isHighlighted: true,
+      isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_vip_link",
       zipDownloadUrl: "./Design sem nome.mp4",
       zipFileSize: "60 Conteúdos HD + Vídeos Exclusivos",
@@ -72,15 +72,37 @@ window.APP_CONFIG = {
     },
     {
       id: "ultimate",
-      name: "Vault Total All-Access",
+      name: "Vault Total + Chat VIP",
       priceEUR: 69.99,
-      badge: "VAULT COMPLETO",
-      isHighlighted: false,
+      badge: "MAIS POPULAR 🔥",
+      isHighlighted: true,
       stripeUrl: "https://buy.stripe.com/test_ultimate_link",
       zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
-      zipFileSize: "120+ Conteúdos HD + Acervo Completo Vault",
-      itemCount: "120+ Mídias + Vídeos + Guia Exclusivo + Bónus",
+      zipFileSize: "120+ Mídias Vault + Chat Privado 1-on-1",
+      itemCount: "120+ Mídias + Chat Privado 1-on-1 + Bónus",
       files: [
+        { name: "Pass_Acesso_Chat_Privado.pdf", size: "Acesso Direto Chat 1-on-1", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
+        { name: "CLEAN_GRADE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./CLEAN_GRADE_LUT.cube" },
+        { name: "SUNSET_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./SUNSET_LUT.cube" },
+        { name: "ALTITUDE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./ALTITUDE_LUT.cube" },
+        { name: "TEAL_AND_ORANGE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./TEAL_AND_ORANGE_LUT.cube" },
+        { name: "VINTAGE_GREEN_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./VINTAGE_GREEN_LUT.cube" },
+        { name: "Design sem nome.mp4", size: "Vídeo 4K Ultra HD", url: "./Design sem nome.mp4" },
+        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "Guia Exclusivo PDF", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
+      ]
+    },
+    {
+      id: "chat",
+      name: "VIP Diamond Chat + Acervo Completo",
+      priceEUR: 99.99,
+      badge: "SUPREMO DIAMOND 💎",
+      isHighlighted: true,
+      stripeUrl: "https://buy.stripe.com/test_chat_link",
+      zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
+      zipFileSize: "Chat Privado Resposta Prioritária + Acervo Total Mídias 4K",
+      itemCount: "Chat Privado Prioritário + Acervo Completo 120+ Mídias + Atualizações",
+      files: [
+        { name: "Pass_Acesso_Chat_Privado_Diamond.pdf", size: "Acesso Prioritário Chat 1-on-1", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
         { name: "CLEAN_GRADE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./CLEAN_GRADE_LUT.cube" },
         { name: "SUNSET_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./SUNSET_LUT.cube" },
         { name: "ALTITUDE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./ALTITUDE_LUT.cube" },
@@ -88,21 +110,7 @@ window.APP_CONFIG = {
         { name: "VINTAGE_GREEN_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./VINTAGE_GREEN_LUT.cube" },
         { name: "Design sem nome.mp4", size: "Vídeo 4K Ultra HD", url: "./Design sem nome.mp4" },
         { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "Guia Exclusivo PDF", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
-        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "Acervo Completo Vault", url: "#" }
-      ]
-    },
-    {
-      id: "chat",
-      name: "Acesso VIP Chat 1-on-1",
-      priceEUR: 99.99,
-      badge: "CHAT EXCLUSIVO",
-      isHighlighted: false,
-      stripeUrl: "https://buy.stripe.com/test_chat_link",
-      zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
-      zipFileSize: "Acesso Direto ao Chat Privado da Modelo",
-      itemCount: "Conversa Privada Direta com a Criadora + Acesso VIP",
-      files: [
-        { name: "Pass_Acesso_Chat_Privado.pdf", size: "Acesso Direto Chat 1-on-1", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
+        { name: "ULTIMATE_VAULT_DIAMOND_MEDIA.zip", size: "Acervo Completo Vault 4K", url: "#" }
       ]
     }
   ],

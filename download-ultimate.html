@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obrigado pela sua Compra — Vault Total All-Access</title>
+  <title>Obrigado pela sua Compra — Vault Total + Chat VIP</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .hero-dash { text-align: center; padding: 30px 20px 10px; }
-    .skip-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-pill); border: 1px solid var(--accent-purple);
-      color: #fff; padding: 12px 24px; border-radius: var(--radius-full);
-      text-decoration: none; font-weight: 700; margin-top: 20px; transition: all 0.3s ease;
+    .hero-dash { text-align: center; padding: 24px 16px 10px; }
+    .chat-access-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(245, 158, 11, 0.14));
+      border: 2px solid var(--primary-gold);
+      box-shadow: 0 0 28px var(--primary-gold-glow);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      margin: 20px 0 28px;
     }
-    .skip-btn:hover { background: var(--accent-purple); box-shadow: 0 0 20px var(--accent-purple-glow); }
-    .walkthrough-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 28px 0 40px; }
-    .step-card { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-md); padding: 24px; position: relative; }
-    .step-num { background: var(--accent-purple); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); display: inline-block; margin-bottom: 12px; }
-    .step-card h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 8px; }
-    .step-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .chat-icon-pulse { font-size: 2.8rem; margin-bottom: 8px; }
+    .chat-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .chat-sub { color: var(--text-muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 16px; }
+    .btn-chat-link {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-rose));
+      color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem;
+      padding: 14px 28px; border-radius: var(--radius-md); text-decoration: none;
+      box-shadow: 0 10px 28px var(--accent-purple-glow); transition: all 0.3s ease; width: 100%; max-width: 460px;
+    }
+    .btn-chat-link:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(236, 72, 153, 0.5); }
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-content { background: #12141d; border: 1px solid var(--border-glow); border-radius: var(--radius-lg); max-width: 600px; width: 100%; padding: 32px; max-height: 80vh; overflow-y: auto; position: relative; }
     .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
@@ -36,7 +44,7 @@
   <header class="top-nav">
     <a href="checkout.html" class="brand-logo">
       <span>FÕCL MEDIA</span>
-      <span class="brand-badge">ULTIMATE VAULT DELIVERY</span>
+      <span class="brand-badge">VAULT + CHAT DELIVERY</span>
     </a>
 
     <!-- Language Selector Dropdown -->
@@ -62,44 +70,20 @@
 
     <!-- Hero Section -->
     <div class="hero-dash">
-      <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.5rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Vault Total All-Access (69,99 €)</p>
-      
-      <a href="#downloads-section" class="skip-btn" data-i18n="skipToDownloads">
-        🚀 Ir diretamente para Downloads
-      </a>
+      <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.2rem;">Obrigado pela sua Compra!</h1>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 6px auto 0;">O seu painel pessoal de entrega — Vault Total + Chat VIP (69,99 €)</p>
     </div>
 
-    <!-- Walkthrough & Extraction Guide -->
-    <section style="margin-top: 36px;">
-      <h2 class="section-title" data-i18n="walkthroughTitle" style="font-size: 1.6rem; text-align: left;">Guia de Acesso e Extração de Ficheiros</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="walkthroughSub">
-        Siga estes 4 passos simples para descarregar e abrir o seu pacote em qualquer dispositivo:
-      </p>
-
-      <div class="walkthrough-grid">
-        <div class="step-card">
-          <span class="step-num">PASSO 1</span>
-          <h4 data-i18n="step1Title">Passo 1: Clique no Botão de Download</h4>
-          <p data-i18n="step1Desc">Escolha o pacote adquirido abaixo e clique no botão verde para descarregar o ficheiro comprimido (.ZIP).</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 2</span>
-          <h4 data-i18n="step2Title">Passo 2: Abrir no Telemóvel (iPhone / Android)</h4>
-          <p data-i18n="step2Desc">No iPhone, abra a aplicação 'Ficheiros' e toque no ficheiro descarregado para extrair instantaneamente. No Android, utilize a app 'Meus Ficheiros'.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 3</span>
-          <h4 data-i18n="step3Title">Passo 3: Abrir no Computador (Windows / Mac)</h4>
-          <p data-i18n="step3Desc">Dê um duplo clique no ficheiro .ZIP para descompactar todas as fotos e vídeos HD diretamente para a sua galeria.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">PASSO 4</span>
-          <h4 data-i18n="step4Title">Passo 4: Acesso Permanente</h4>
-          <p data-i18n="step4Desc">Guarde esta página nos seus favoritos. O seu link de download permanecerá ativo sem limite de tempo.</p>
-        </div>
-      </div>
-    </section>
+    <!-- DIRECT CHAT ACCESS CARD INCLUDED IN PLAN 3 -->
+    <div class="chat-access-card">
+      <div class="chat-icon-pulse">💬</div>
+      <h2 class="chat-title">O Seu Acesso ao Chat Privado está Liberado!</h2>
+      <p class="chat-sub">Clique no botão abaixo para conversar diretamente com Alice Ribeiro:</p>
+      <a href="#" id="privateChatDirectBtn" class="btn-chat-link" target="_blank" rel="noopener">
+        <span data-i18n="btnEnterChat">💬 FALAR COM A MODELO AGORA</span>
+        <span>→</span>
+      </a>
+    </div>
 
     <!-- "YOUR DOWNLOADS" SECTION -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
@@ -108,34 +92,31 @@
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Grid of All Unlocked Vault Files -->
-        <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
-
-        <!-- Master ZIP Download CTA -->
-        <div style="margin-top: 28px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
-          <a href="#" id="zipDownloadBtn" class="btn-cta btn-gold" style="display: inline-flex; width: auto; font-size: 1.1rem; padding: 16px 36px;" target="_blank" rel="noopener">
-            <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Vault Completo (.ZIP)</span>
+        <!-- Master ZIP Download Button -->
+        <div style="margin-bottom: 24px; text-align: center;">
+          <a href="#" id="zipDownloadBtn" class="btn-file-download" style="padding: 14px 28px; font-size: 1.05rem; border-radius: var(--radius-md);" download target="_blank" rel="noopener">
+            <span data-i18n="btnDownloadZip">📦 Descarregar Pacote Completo (.ZIP)</span>
           </a>
-          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">1.2 GB</strong>
+          <div style="color: var(--text-dim); font-size: 0.8rem; margin-top: 6px;">
+            <span data-i18n="dlFileSize">Quantidade de Mídias:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">120+ Conteúdos HD + Acervo Completo Vault</strong>
           </div>
         </div>
 
-        <!-- EXACTLY 2 LOCKED CARDS FOR THE OTHER 2 PACKAGES -->
-        <div class="locked-section-divider">
-          <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
-          <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
-            Desbloqueie as outras 2 opções de pacote instantaneamente em 1 clique:
-          </div>
+        <!-- Grid of Unlocked Vault Files -->
+        <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
-          <div class="file-downloads-grid" id="lockedFilesGrid"></div>
+        <!-- ALL UNLOCKED BADGE -->
+        <div class="locked-section-divider">
+          <div class="downloads-green-tag" style="text-align: center;" data-i18n="allUnlockedBadge">
+            ✨ PARABÉNS! TODOS OS FICHEIROS E VÍDEOS ESTÃO 100% DESBLOQUEADOS!
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- Security Box -->
-    <section class="guarantee-box" style="max-width: 680px; margin: 32px auto 0;">
+    <section class="guarantee-box" style="max-width: 680px; margin: 24px auto 0;">
       <p id="guaranteeText" data-i18n="guaranteeText">
         🔒 Checkout 100% Seguro e Discreto via Stripe. Faturação neutra no seu extrato bancário (FÕCL MEDIA).
       </p>
@@ -144,7 +125,7 @@
   </main>
 
   <footer>
-    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;">
       <a href="#" onclick="openModal('terms'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="termsLink">Termos de Serviço</a>
       <a href="#" onclick="openModal('privacy'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="privacyLink">Política de Privacidade</a>
       <a href="#" onclick="openModal('refund'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="refundLink">Política de Reembolso</a>
@@ -187,10 +168,8 @@
 
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
-      const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
-      const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
       const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
-      const chatPkg = APP_CONFIG.packages.find(p => p.id === 'chat');
+      const model = APP_CONFIG.models.exclusive;
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -201,20 +180,23 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      // Render ALL Unlocked Vault Files
+      // Chat Direct Link
+      document.getElementById('privateChatDirectBtn').href = model.privateChatUrl || "https://t.me/aliceribeiro_private_chat";
+
+      // Master ZIP Link
+      const zipBtn = document.getElementById('zipDownloadBtn');
+      zipBtn.href = ultimatePkg.zipDownloadUrl;
+      document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
+
+      // Render Unlocked Files
       const unlockedGrid = document.getElementById('unlockedFilesGrid');
       unlockedGrid.innerHTML = '';
 
       ultimatePkg.files.forEach((file, index) => {
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
-        let icon = '🎨';
-        if (file.name.endsWith('.mp4')) icon = '🎬';
-        if (file.name.endsWith('.pdf')) icon = '📄';
-        if (file.name.endsWith('.zip')) icon = '📦';
-
         card.innerHTML = `
-          <div class="file-icon-box">${icon}</div>
+          <div class="file-icon-box">${file.name.includes('Chat') ? '💬' : '🎨'}</div>
           <div class="file-info-col">
             <div class="file-name-text" title="${file.name}">${file.name}</div>
             <div class="file-size-text">${file.size}</div>
@@ -224,49 +206,6 @@
           </a>
         `;
         unlockedGrid.appendChild(card);
-      });
-
-      document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
-      document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
-
-      // Render Locked Cards (Chat 1-on-1 Pass & Deluxe VIP Pass)
-      const lockedGrid = document.getElementById('lockedFilesGrid');
-      lockedGrid.innerHTML = '';
-
-      const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
-      const priceChat = APP_CONFIG.formatPrice(chatPkg ? chatPkg.priceEUR : 99.99, currentLang);
-
-      const lockedOtherPackages = [
-        {
-          name: "Pass_Acesso_Chat_Privado.pdf",
-          size: "Acesso Chat Privado 1-on-1",
-          pkgName: t.chatTitle,
-          price: priceChat,
-          url: chatPkg ? chatPkg.stripeUrl : "download-chat.html"
-        },
-        {
-          name: "Design sem nome.mp4",
-          size: "35.2 MB",
-          pkgName: t.vipTitle,
-          price: priceVip,
-          url: vipPkg.stripeUrl
-        }
-      ];
-
-      lockedOtherPackages.forEach(file => {
-        const card = document.createElement('div');
-        card.className = 'file-item-card locked-item';
-        card.innerHTML = `
-          <div class="file-icon-box locked-icon">🔒</div>
-          <div class="file-info-col">
-            <div class="file-name-text" title="${file.name}">${file.name}</div>
-            <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
-          </div>
-          <a href="${file.url}" class="btn-file-unlock" target="_blank" rel="noopener">
-            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${file.price})
-          </a>
-        `;
-        lockedGrid.appendChild(card);
       });
     }
 
