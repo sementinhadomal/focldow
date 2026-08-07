@@ -174,7 +174,7 @@
       </div>
     </section>
 
-    <!-- EXACT "YOUR DOWNLOADS" SECTION MATCHING USER SCREENSHOT -->
+    <!-- "YOUR DOWNLOADS" SECTION (MATCHING USER SCREENSHOT) -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
@@ -192,10 +192,24 @@
             <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Pacote Completo (.ZIP)</span>
           </a>
           <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">3.8 GB</strong>
+            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">4.8 MB</strong>
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ORDER BUMP / UPSELL SECTION (OTHER PACKAGE TIERS) -->
+    <section id="order-bump-section">
+      <div class="order-bump-card">
+        <div class="bump-badge" data-i18n="orderBumpTag">🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)</div>
+        <h2 class="bump-title" data-i18n="orderBumpTitle">Complete a sua Coleção com os Pacotes Superiores</h2>
+        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes restantes à sua conta com acesso instantâneo:</p>
+
+        <!-- Grid of Other Packages -->
+        <div class="bump-grid" id="bumpGrid">
+          <!-- Populated by JavaScript -->
+        </div>
       </div>
     </section>
 
@@ -281,11 +295,10 @@
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
 
-        // Select appropriate icon
         let icon = '🎨';
         if (file.name.endsWith('.mp4') || file.name.endsWith('.mov')) icon = '🎬';
         if (file.name.endsWith('.zip') || file.name.endsWith('.rar')) icon = '📦';
-        if (file.name.endsWith('.jpg') || file.name.endsWith('.png')) icon = '🖼️';
+        if (file.name.endsWith('.pdf')) icon = '📄';
 
         card.innerHTML = `
           <div class="file-icon-box">${icon}</div>
@@ -293,7 +306,7 @@
             <div class="file-name-text" title="${file.name}">${file.name}</div>
             <div class="file-size-text">${file.size}</div>
           </div>
-          <a href="${file.url}" class="btn-file-download" target="_blank" rel="noopener">
+          <a href="${file.url}" class="btn-file-download" download target="_blank" rel="noopener">
             ${t.btnDownloadNow || 'DOWNLOAD'}
           </a>
         `;
@@ -304,6 +317,50 @@
       // Master ZIP package button details
       document.getElementById('zipDownloadBtn').href = pkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = pkg.zipFileSize;
+
+      // Render Order Bump / Upsell Grid (Other available package tiers)
+      renderOrderBumps(pkgId, t);
+    }
+
+    // Render Order Bump cards for other package tiers
+    function renderOrderBumps(currentPkgId, t) {
+      const bumpGrid = document.getElementById('bumpGrid');
+      bumpGrid.innerHTML = '';
+
+      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== currentPkgId);
+
+      if (otherPackages.length === 0) {
+        document.getElementById('order-bump-section').style.display = 'none';
+        return;
+      }
+
+      otherPackages.forEach(pkg => {
+        const bumpCard = document.createElement('div');
+        bumpCard.className = 'bump-pkg-card';
+
+        let name = t.starterTitle;
+        if (pkg.id === 'vip') name = t.vipTitle;
+        if (pkg.id === 'ultimate') name = t.ultimateTitle;
+
+        const price = (currentLang === 'en') ? pkg.priceUSD : pkg.priceEUR;
+
+        bumpCard.innerHTML = `
+          <div class="bump-pkg-header">
+            <div class="bump-pkg-name">${name}</div>
+            <div class="bump-pkg-price">${price}</div>
+            <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
+              ✓ ${pkg.itemCount}
+            </div>
+          </div>
+
+          <a href="${pkg.stripeUrl}" class="bump-btn" target="_blank" rel="noopener">
+            <span>${t.btnOrderBump || '⚡ Adicionar este Pacote Agora'}</span>
+            <span>→</span>
+          </a>
+        `;
+
+        bumpGrid.appendChild(bumpCard);
+      });
     }
 
     function openModal(type) {

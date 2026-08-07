@@ -67,6 +67,12 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Descarregar Pacote Completo (.ZIP)",
     dlFileSize: "Tamanho do Ficheiro:",
     dlAccessKey: "Chave de Acesso Pessoal:",
+
+    // Order Bump / Upsell Translations
+    orderBumpTag: "🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)",
+    orderBumpTitle: "Complete a sua Coleção com os Pacotes Superiores",
+    orderBumpSub: "Adicione os pacotes restantes à sua conta com acesso instantâneo:",
+    btnOrderBump: "⚡ Adicionar este Pacote Agora",
     
     termsLink: "Termos de Serviço",
     privacyLink: "Política de Privacidade",
@@ -138,6 +144,11 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Download Full Pack (.ZIP)",
     dlFileSize: "File Size:",
     dlAccessKey: "Personal Access Key:",
+
+    orderBumpTag: "🔥 EXCLUSIVE UPGRADE OFFER (ORDER BUMP)",
+    orderBumpTitle: "Complete Your Collection with Higher Tier Packs",
+    orderBumpSub: "Add remaining packs to your account with instant 1-click access:",
+    btnOrderBump: "⚡ Add This Pack Now",
     
     termsLink: "Terms of Service",
     privacyLink: "Privacy Policy",
@@ -209,6 +220,11 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Télécharger le Pack Complet (.ZIP)",
     dlFileSize: "Taille du Fichier :",
     dlAccessKey: "Clé d'Accès Personnelle :",
+
+    orderBumpTag: "🔥 OFFRE DE SURCLASSEMENT EXCLUSIVE (ORDER BUMP)",
+    orderBumpTitle: "Complétez votre Collection avec les Packs Supérieurs",
+    orderBumpSub: "Ajoutez les packs restants à votre compte en 1 clic :",
+    btnOrderBump: "⚡ Ajouter ce Pack Maintenant",
     
     termsLink: "Conditions d'Utilisation",
     privacyLink: "Politique de Confidentialité",
@@ -280,6 +296,11 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Scarica Pacchetto Completo (.ZIP)",
     dlFileSize: "Dimensione File:",
     dlAccessKey: "Chiave di Accesso Personale:",
+
+    orderBumpTag: "🔥 OFFERTA DI UPGRADE ESCLUSIVA (ORDER BUMP)",
+    orderBumpTitle: "Completa la tua Collezione con i Pacchetti Superiori",
+    orderBumpSub: "Aggiungi i pacchetti rimanenti al tuo account con 1 clic:",
+    btnOrderBump: "⚡ Aggiungi questo Pacchetto Ora",
     
     termsLink: "Termini di Servizio",
     privacyLink: "Informativa sulla Privacy",
@@ -351,6 +372,11 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Vollständiges Paket herunterladen (.ZIP)",
     dlFileSize: "Dateigröße:",
     dlAccessKey: "Persönlicher Zugriffsschlüssel:",
+
+    orderBumpTag: "🔥 EXKLUSIVES UPGRADE-ANGEBOT (ORDER BUMP)",
+    orderBumpTitle: "Vervollständigen Sie Ihre Sammlung mit höheren Paketen",
+    orderBumpSub: "Fügen Sie verbleibende Pakete mit 1 Klick zu Ihrem Konto hinzu:",
+    btnOrderBump: "⚡ Dieses Paket jetzt hinzufügen",
     
     termsLink: "Nutzungsbedingungen",
     privacyLink: "Datenschutz-Bestimmungen",
@@ -422,6 +448,11 @@ window.TRANSLATIONS = {
     btnDownloadZip: "📦 Descargar Paquete Completo (.ZIP)",
     dlFileSize: "Tamaño del Archivo:",
     dlAccessKey: "Clave de Acceso Personal:",
+
+    orderBumpTag: "🔥 OFERTA DE MEJORA EXCLUSIVA (ORDER BUMP)",
+    orderBumpTitle: "Completa tu Colección con los Paquetes Superiores",
+    orderBumpSub: "Añade los paquetes restantes a tu cuenta en 1 clic:",
+    btnOrderBump: "⚡ Añadir este Paquete Ahora",
     
     termsLink: "Términos de Servicio",
     privacyLink: "Política de Privacidad",
