@@ -115,9 +115,90 @@
     <h2 class="section-title" data-i18n="heroBadge">Conteúdo Digital Exclusivo</h2>
     <p class="section-subtitle" data-i18n="siteTitle">Selecione o seu pacote e obtenha acesso imediato após o pagamento.</p>
 
-    <!-- Package Cards Grid (Now 4 Packages) -->
+    <!-- Package Cards Grid (4 Packages) -->
     <section class="packages-grid" id="packagesGrid">
       <!-- Dynamic Package Cards injected by JavaScript -->
+    </section>
+
+    <!-- BLURRED PREVIEWS HORIZONTAL CAROUSEL SECTION -->
+    <section class="previews-section" id="previewsSection">
+      <h2 class="section-title" style="font-size: 1.4rem; text-align: left;">🔥 Prévia do Acervo Exclusivo</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 14px;">
+        Arraste horizontalmente para ver prévias dos ensaios disponíveis nos pacotes:
+      </p>
+
+      <div class="previews-scroll-wrapper">
+
+        <!-- Preview Post Card 1 -->
+        <div class="preview-post-card">
+          <div class="preview-card-header">
+            <div class="preview-author-box">
+              <img src="./assets/avatar.jpg" class="preview-author-avatar" alt="Avatar">
+              <div>
+                <div class="preview-author-name" id="prevAuthor1">Sophia VIP</div>
+                <div class="preview-author-tag">Canal VIP Exclusivo</div>
+              </div>
+            </div>
+            <div class="preview-time-stamp">agora</div>
+          </div>
+          <div class="preview-media-box" onclick="scrollToPackages()">
+            <img src="./assets/teaser1.jpg" class="preview-media-img" alt="Ensaio Teaser 1">
+            <div class="preview-lock-overlay">
+              <div class="preview-lock-badge">🔒 ENTRA PRA VER</div>
+            </div>
+          </div>
+          <div class="preview-card-caption">
+            Ensaio novo de biquíni postado essa semana 🌊🔥
+          </div>
+        </div>
+
+        <!-- Preview Post Card 2 -->
+        <div class="preview-post-card">
+          <div class="preview-card-header">
+            <div class="preview-author-box">
+              <img src="./assets/avatar.jpg" class="preview-author-avatar" alt="Avatar">
+              <div>
+                <div class="preview-author-name" id="prevAuthor2">Sophia VIP</div>
+                <div class="preview-author-tag">Canal VIP Exclusivo</div>
+              </div>
+            </div>
+            <div class="preview-time-stamp">ontem</div>
+          </div>
+          <div class="preview-media-box" onclick="scrollToPackages()">
+            <img src="./assets/teaser2.jpg" class="preview-media-img" alt="Ensaio Teaser 2">
+            <div class="preview-lock-overlay">
+              <div class="preview-lock-badge">🔒 ENTRA PRA VER</div>
+            </div>
+          </div>
+          <div class="preview-card-caption">
+            Coleção VIP 4K de estúdio com iluminação especial 📸✨
+          </div>
+        </div>
+
+        <!-- Preview Post Card 3 -->
+        <div class="preview-post-card">
+          <div class="preview-card-header">
+            <div class="preview-author-box">
+              <img src="./assets/avatar.jpg" class="preview-author-avatar" alt="Avatar">
+              <div>
+                <div class="preview-author-name" id="prevAuthor3">Sophia VIP</div>
+                <div class="preview-author-tag">Canal VIP Exclusivo</div>
+              </div>
+            </div>
+            <div class="preview-time-stamp">há 2 dias</div>
+          </div>
+          <div class="preview-media-box" onclick="scrollToPackages()">
+            <img src="./assets/teaser3.jpg" class="preview-media-img" alt="Ensaio Teaser 3">
+            <div class="preview-lock-overlay">
+              <div class="preview-lock-badge">🔒 ENTRA PRA VER</div>
+            </div>
+          </div>
+          <div class="preview-card-caption">
+            Vídeo inédito de bastidores libertado no Vault 🎬🔥
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- Discreet Stripe Security Box -->
@@ -230,6 +311,10 @@
       item.classList.toggle('active');
     }
 
+    function scrollToPackages() {
+      document.getElementById('packagesGrid').scrollIntoView({ behavior: 'smooth' });
+    }
+
     function changeLanguage(langCode) {
       if (!TRANSLATIONS[langCode]) return;
       currentLang = langCode;
@@ -251,6 +336,10 @@
       document.getElementById('creatorAvatar').src = model.avatar;
       document.getElementById('creatorBanner').src = model.banner;
       document.getElementById('creatorBio').innerText = model.bio[currentLang] || model.bio['pt-PT'];
+
+      document.querySelectorAll('#prevAuthor1, #prevAuthor2, #prevAuthor3').forEach(el => {
+        el.innerText = model.name;
+      });
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');

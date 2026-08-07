@@ -339,9 +339,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* ==========================================================================
-   4-COLUMN DESKTOP & 2x2 MOBILE PACKAGES GRID
-   ========================================================================== */
+/* 4-COLUMN DESKTOP & 2x2 MOBILE PACKAGES GRID */
 .packages-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -485,6 +483,152 @@ body {
   box-shadow: 0 8px 22px var(--primary-gold-glow);
 }
 
+/* ==========================================================================
+   TELEGRAM-STYLE BLURRED PREVIEWS HORIZONTAL CAROUSEL
+   ========================================================================== */
+.previews-section {
+  margin: 36px 0 48px;
+}
+
+.previews-scroll-wrapper {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 12px 4px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.previews-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.previews-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+}
+.previews-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--accent-purple), var(--primary-gold));
+  border-radius: 999px;
+}
+
+.preview-post-card {
+  width: 290px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: #10121c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.preview-post-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 16px 36px var(--primary-gold-glow);
+}
+
+.preview-card-header {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.preview-author-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--accent-purple);
+}
+
+.preview-author-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.preview-author-tag {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+}
+
+.preview-time-stamp {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.preview-media-box {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.preview-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) scale(1.15) brightness(0.85);
+  transition: filter 0.3s ease;
+}
+
+.preview-post-card:hover .preview-media-img {
+  filter: blur(14px) scale(1.18) brightness(0.95);
+}
+
+.preview-lock-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.preview-lock-badge {
+  background: linear-gradient(135deg, var(--primary-gold), #d97706);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 24px var(--primary-gold-glow);
+  text-transform: uppercase;
+}
+
+.preview-card-caption {
+  padding: 12px 14px;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  background: rgba(255, 255, 255, 0.02);
+}
+
 /* Guarantee Box */
 .guarantee-box {
   background: rgba(18, 20, 29, 0.5);
@@ -565,9 +709,7 @@ body {
 .faq-item.active .faq-arrow { transform: rotate(180deg); }
 .faq-arrow { transition: transform 0.3s ease; }
 
-/* ==========================================================================
-   DOWNLOAD DASHBOARD CARDS & FILE CARDS RESPONSIVE DESIGN
-   ========================================================================== */
+/* Download Cards Styling */
 .downloads-panel-card {
   background: #0d0f17;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -680,7 +822,7 @@ body {
   box-shadow: 0 6px 14px rgba(34, 197, 94, 0.5);
 }
 
-/* Locked Items Styling */
+/* Locked Items */
 .file-item-card.locked-item {
   background: rgba(18, 20, 30, 0.6);
   border: 1px dashed rgba(245, 158, 11, 0.45);
@@ -749,9 +891,7 @@ footer {
   z-index: 1;
 }
 
-/* ==========================================================================
-   OPTIMIZED MOBILE BREAKPOINTS (SMARTPHONES & TABLETS)
-   ========================================================================== */
+/* Mobile Breakpoints */
 @media (max-width: 1024px) {
   .packages-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -774,7 +914,6 @@ footer {
   .section-title { font-size: 1.3rem; }
   .section-subtitle { font-size: 0.82rem; margin-bottom: 16px; }
 
-  /* 2x2 Grid for Mobile so all 4 packages fit perfectly */
   .packages-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
@@ -836,7 +975,19 @@ footer {
     border-radius: 6px;
   }
 
-  /* File Downloads Grid Mobile */
+  .preview-post-card {
+    width: 230px;
+  }
+
+  .preview-media-box {
+    height: 270px;
+  }
+
+  .preview-lock-badge {
+    font-size: 0.72rem;
+    padding: 8px 14px;
+  }
+
   .downloads-panel-card {
     padding: 16px 10px;
     margin: 16px auto 14px;
