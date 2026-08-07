@@ -63,7 +63,7 @@
     <!-- Hero Section -->
     <div class="hero-dash">
       <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.5rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Pacote Inicial HD</p>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Pacote Inicial HD (19,99 €)</p>
       
       <a href="#downloads-section" class="skip-btn" data-i18n="skipToDownloads">
         🚀 Ir diretamente para Downloads
@@ -117,19 +117,19 @@
             <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Pacote Completo (.ZIP)</span>
           </a>
           <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">4.8 MB</strong>
+            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">2.8 MB</strong>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ORDER BUMP / UPSELL SECTION (SHOWS DELUXE VIP & ULTIMATE VAULT) -->
+    <!-- ORDER BUMP / UPSELL SECTION FOR HIGHER PACKAGES -->
     <section id="order-bump-section">
       <div class="order-bump-card">
         <div class="bump-badge" data-i18n="orderBumpTag">🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)</div>
         <h2 class="bump-title" data-i18n="orderBumpTitle">Complete a sua Coleção com os Pacotes Superiores</h2>
-        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes restantes à sua conta com acesso instantâneo:</p>
+        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes superiores à sua conta com acesso instantâneo:</p>
         <div class="bump-grid" id="bumpGrid"></div>
       </div>
     </section>
@@ -167,7 +167,7 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "starter"; // Dedicated to Starter Pack
+    const pkgId = "starter"; // Dedicated Starter Pack (19,99 €)
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -206,8 +206,6 @@
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
         let icon = '🎨';
-        if (file.name.endsWith('.mp4') || file.name.endsWith('.mov')) icon = '🎬';
-        if (file.name.endsWith('.zip')) icon = '📦';
 
         card.innerHTML = `
           <div class="file-icon-box">${icon}</div>
@@ -243,7 +241,7 @@
           <div class="bump-pkg-header">
             <div class="bump-pkg-name">${name}</div>
             <div class="bump-pkg-price">${priceFormatted}</div>
-            <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
+            <div style="color: #10b981; font-size: 0.88rem; font-weight: 600; margin-top: 6px;">
               ✓ ${pkg.itemCount}
             </div>
           </div>

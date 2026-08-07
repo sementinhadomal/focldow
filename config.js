@@ -1,6 +1,6 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Base Currency: EUR (€) - All Stripe Payment Links are fixed in EUR.
+ * Base Currency: EUR (€) - Distinct prices, media files, and Order Bumps for each tier.
  */
 
 window.APP_CONFIG = {
@@ -8,10 +8,9 @@ window.APP_CONFIG = {
   defaultLang: "pt-PT",
   baseCurrency: "EUR",
   
-  // Approximate Live Exchange Rates relative to 1 EUR
   exchangeRates: {
     EUR: 1.0,
-    USD: 1.09 // 1 EUR = 1.09 USD
+    USD: 1.09
   },
 
   models: {
@@ -34,17 +33,18 @@ window.APP_CONFIG = {
     }
   },
 
-  // Base Prices fixed in Euros (€)
+  // 3 Distinct Product Tiers with Unique Deliverable Media Files & Prices
   packages: [
     {
       id: "starter",
+      name: "Pacote Inicial HD",
       priceEUR: 19.99,
       badge: "POPULAR",
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_starter_link",
       zipDownloadUrl: "./CLEAN_GRADE_LUT.cube",
-      zipFileSize: "4.8 MB (Lote Completo)",
-      itemCount: "5 LUTs Presets HD",
+      zipFileSize: "2.8 MB (Pacote Inicial)",
+      itemCount: "3 LUTs Presets HD Básicos",
       files: [
         { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
         { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
@@ -53,48 +53,51 @@ window.APP_CONFIG = {
     },
     {
       id: "vip",
+      name: "Pass Deluxe VIP",
       priceEUR: 39.99,
       badge: "RECOMENDADO",
       isHighlighted: true,
       stripeUrl: "https://buy.stripe.com/test_vip_link",
-      zipDownloadUrl: "./CLEAN_GRADE_LUT.cube",
-      zipFileSize: "4.8 MB (Lote Completo)",
-      itemCount: "Lote Completo 5 LUTs + Vídeos Exclusivos",
-      files: [
-        { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
-        { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
-        { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" },
-        { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", url: "./TEAL_AND_ORANGE_LUT.cube" },
-        { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", url: "./VINTAGE_GREEN_LUT.cube" }
-      ]
-    },
-    {
-      id: "ultimate",
-      priceEUR: 69.99,
-      badge: "VAULT COMPLETO",
-      isHighlighted: false,
-      stripeUrl: "https://buy.stripe.com/test_ultimate_link",
-      zipDownloadUrl: "./CLEAN_GRADE_LUT.cube",
-      zipFileSize: "4.8 MB (Vault Completo)",
-      itemCount: "Vault Completo + Ficheiros Bónus Inéditos",
+      zipDownloadUrl: "./Design sem nome.mp4",
+      zipFileSize: "35.2 MB (Pacote Deluxe + Vídeo)",
+      itemCount: "5 LUTs Presets HD + Vídeo Exclusivo HD",
       files: [
         { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
         { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
         { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" },
         { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", url: "./TEAL_AND_ORANGE_LUT.cube" },
         { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", url: "./VINTAGE_GREEN_LUT.cube" },
-        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
+        { name: "Design sem nome.mp4", size: "30.4 MB", url: "./Design sem nome.mp4" }
+      ]
+    },
+    {
+      id: "ultimate",
+      name: "Vault Total All-Access",
+      priceEUR: 69.99,
+      badge: "VAULT COMPLETO",
+      isHighlighted: false,
+      stripeUrl: "https://buy.stripe.com/test_ultimate_link",
+      zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
+      zipFileSize: "1.2 GB (Vault Completo All-Access)",
+      itemCount: "Acervo Completo 5 LUTs + Vídeos + Guia PDF + Bónus Vault",
+      files: [
+        { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
+        { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
+        { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" },
+        { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", url: "./TEAL_AND_ORANGE_LUT.cube" },
+        { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", url: "./VINTAGE_GREEN_LUT.cube" },
+        { name: "Design sem nome.mp4", size: "30.4 MB", url: "./Design sem nome.mp4" },
+        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
+        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", url: "#" }
       ]
     }
   ],
 
-  // Format price dynamically: Fixed EUR base + auto conversion display for USD
   formatPrice: function(priceEUR, lang) {
     if (lang === 'en') {
       const convertedUSD = (priceEUR * window.APP_CONFIG.exchangeRates.USD).toFixed(2);
       return `$${convertedUSD} <span style="font-size: 0.75em; color: var(--text-dim);">(${priceEUR.toFixed(2)} €)</span>`;
     }
-    // European comma decimal format
     return `${priceEUR.toFixed(2).replace('.', ',')} €`;
   },
 
