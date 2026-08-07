@@ -1,6 +1,6 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Base Currency: EUR (€) - Media quantities instead of file byte sizes.
+ * Base Currency: EUR (€) - Model Name: Alice Ribeiro
  */
 
 window.APP_CONFIG = {
@@ -16,13 +16,13 @@ window.APP_CONFIG = {
   models: {
     exclusive: {
       id: "exclusive",
-      name: "Sophia VIP",
+      name: "Alice Ribeiro",
       brandName: "FÕCL MEDIA — Creator Series",
-      username: "@sophia_official",
+      username: "@aliceribeiro_official",
       avatar: "./assets/avatar.jpg",
       banner: "./assets/banner.jpg",
       verified: true,
-      privateChatUrl: "https://t.me/sophia_vip_private_chat",
+      privateChatUrl: "https://t.me/aliceribeiro_private_chat",
       bio: {
         "pt-PT": "Dashboard oficial de entrega de conteúdos digitais, pacotes de fotos HD e coleções de vídeo de alta resolução.",
         "en": "Official digital product delivery dashboard for exclusive HD media packs and video collections.",
