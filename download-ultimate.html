@@ -22,18 +22,6 @@
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-content { background: #12141d; border: 1px solid var(--border-glow); border-radius: var(--radius-lg); max-width: 600px; width: 100%; padding: 32px; max-height: 80vh; overflow-y: auto; position: relative; }
     .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-    .all-unlocked-banner {
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      color: #10b981;
-      border-radius: var(--radius-md);
-      padding: 16px;
-      text-align: center;
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 0.95rem;
-      margin-top: 24px;
-    }
   </style>
 </head>
 <body>
@@ -113,7 +101,7 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION FOR ULTIMATE VAULT (ALL FILES UNLOCKED) -->
+    <!-- "YOUR DOWNLOADS" SECTION FOR ULTIMATE VAULT -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
@@ -133,9 +121,14 @@
           </div>
         </div>
 
-        <!-- All Unlocked Congratulations Banner -->
-        <div class="all-unlocked-banner" data-i18n="allUnlockedBadge">
-          ✨ PARABÉNS! TODOS OS FICHEIROS E VÍDEOS ESTÃO 100% DESBLOQUEADOS!
+        <!-- LOCKED PREMIUM EXTRA FILE SECTION -->
+        <div class="locked-section-divider">
+          <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
+          <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
+            Desbloqueie o Passe Vitalício de Futuros Lançamentos em 1 clique:
+          </div>
+
+          <div class="file-downloads-grid" id="lockedFilesGrid"></div>
         </div>
 
       </div>
@@ -214,9 +207,9 @@
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
         let icon = '🎨';
-        if (file.name.endsWith('.mp4') || file.name.endsWith('.mov')) icon = '🎬';
-        if (file.name.endsWith('.zip')) icon = '📦';
+        if (file.name.endsWith('.mp4')) icon = '🎬';
         if (file.name.endsWith('.pdf')) icon = '📄';
+        if (file.name.endsWith('.zip')) icon = '📦';
 
         card.innerHTML = `
           <div class="file-icon-box">${icon}</div>
@@ -233,6 +226,32 @@
 
       document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
+
+      // Render Premium Locked Extra Drops File
+      const lockedGrid = document.getElementById('lockedFilesGrid');
+      lockedGrid.innerHTML = '';
+
+      const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
+
+      const lockedFiles = [
+        { name: "FUTURE_VIP_DROPS_AND_PRIVATE_VAULT.zip", size: "4.8 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício & Lançamentos Futuros" }
+      ];
+
+      lockedFiles.forEach(file => {
+        const card = document.createElement('div');
+        card.className = 'file-item-card locked-item';
+        card.innerHTML = `
+          <div class="file-icon-box locked-icon">🔒</div>
+          <div class="file-info-col">
+            <div class="file-name-text" title="${file.name}">${file.name}</div>
+            <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
+          </div>
+          <a href="${file.url}" class="btn-file-unlock" target="_blank" rel="noopener">
+            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${file.price})
+          </a>
+        `;
+        lockedGrid.appendChild(card);
+      });
     }
 
     function openModal(type) {

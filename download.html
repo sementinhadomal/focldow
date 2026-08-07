@@ -6,92 +6,22 @@
   <title>Obrigado pela sua Compra — FÕCL MEDIA Digital</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .hero-dash {
-      text-align: center;
-      padding: 30px 20px 10px;
-    }
+    .hero-dash { text-align: center; padding: 30px 20px 10px; }
     .skip-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-pill);
-      border: 1px solid var(--accent-purple);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      font-weight: 700;
-      margin-top: 20px;
-      transition: all 0.3s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-pill); border: 1px solid var(--accent-purple);
+      color: #fff; padding: 12px 24px; border-radius: var(--radius-full);
+      text-decoration: none; font-weight: 700; margin-top: 20px; transition: all 0.3s ease;
     }
-    .skip-btn:hover {
-      background: var(--accent-purple);
-      box-shadow: 0 0 20px var(--accent-purple-glow);
-    }
-    .walkthrough-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin: 28px 0 40px;
-    }
-    .step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      position: relative;
-    }
-    .step-num {
-      background: var(--accent-purple);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-    .step-card h4 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-    .step-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px);
-      z-index: 999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #12141d;
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      max-width: 600px;
-      width: 100%;
-      padding: 32px;
-      max-height: 80vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+    .skip-btn:hover { background: var(--accent-purple); box-shadow: 0 0 20px var(--accent-purple-glow); }
+    .walkthrough-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 28px 0 40px; }
+    .step-card { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-md); padding: 24px; position: relative; }
+    .step-num { background: var(--accent-purple); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); display: inline-block; margin-bottom: 12px; }
+    .step-card h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 8px; }
+    .step-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-content { background: #12141d; border: 1px solid var(--border-glow); border-radius: var(--radius-lg); max-width: 600px; width: 100%; padding: 32px; max-height: 80vh; overflow-y: auto; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -153,19 +83,16 @@
           <h4 data-i18n="step1Title">Passo 1: Clique no Botão de Download</h4>
           <p data-i18n="step1Desc">Escolha o pacote adquirido abaixo e clique no botão verde para descarregar o ficheiro comprimido (.ZIP).</p>
         </div>
-
         <div class="step-card">
           <span class="step-num">PASSO 2</span>
           <h4 data-i18n="step2Title">Passo 2: Abrir no Telemóvel (iPhone / Android)</h4>
           <p data-i18n="step2Desc">No iPhone, abra a aplicação 'Ficheiros' e toque no ficheiro descarregado para extrair instantaneamente. No Android, utilize a app 'Meus Ficheiros'.</p>
         </div>
-
         <div class="step-card">
           <span class="step-num">PASSO 3</span>
           <h4 data-i18n="step3Title">Passo 3: Abrir no Computador (Windows / Mac)</h4>
           <p data-i18n="step3Desc">Dê um duplo clique no ficheiro .ZIP para descompactar todas as fotos e vídeos HD diretamente para a sua galeria.</p>
         </div>
-
         <div class="step-card">
           <span class="step-num">PASSO 4</span>
           <h4 data-i18n="step4Title">Passo 4: Acesso Permanente</h4>
@@ -174,42 +101,36 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION (MATCHING USER SCREENSHOT) -->
+    <!-- "YOUR DOWNLOADS" SECTION (UNLOCKED & LOCKED FILE CARDS GRID) -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Dynamic Grid of Individual Files -->
-        <div class="file-downloads-grid" id="fileDownloadsGrid">
-          <!-- Populated by JavaScript -->
-        </div>
+        <!-- Grid of Unlocked Purchased Files -->
+        <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
         <!-- Master ZIP Download CTA -->
-        <div style="margin-top: 32px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;">
+        <div style="margin-top: 28px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
           <a href="#" id="zipDownloadBtn" class="btn-cta btn-gold" style="display: inline-flex; width: auto; font-size: 1.1rem; padding: 16px 36px;" target="_blank" rel="noopener">
             <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Pacote Completo (.ZIP)</span>
           </a>
-          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">4.8 MB</strong>
+          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">2.8 MB</strong>
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- LOCKED PREMIUM FILES SECTION -->
+        <div class="locked-section-divider">
+          <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
+          <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
+            Desbloqueie os conteúdos superiores instantaneamente em 1 clique:
+          </div>
 
-    <!-- ORDER BUMP / UPSELL SECTION (OTHER PACKAGE TIERS) -->
-    <section id="order-bump-section">
-      <div class="order-bump-card">
-        <div class="bump-badge" data-i18n="orderBumpTag">🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)</div>
-        <h2 class="bump-title" data-i18n="orderBumpTitle">Complete a sua Coleção com os Pacotes Superiores</h2>
-        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes restantes à sua conta com acesso instantâneo:</p>
-
-        <!-- Grid of Other Packages -->
-        <div class="bump-grid" id="bumpGrid">
-          <!-- Populated by JavaScript -->
+          <div class="file-downloads-grid" id="lockedFilesGrid"></div>
         </div>
+
       </div>
     </section>
 
@@ -222,7 +143,6 @@
 
   </main>
 
-  <!-- Legal Footer with Modals -->
   <footer>
     <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
       <a href="#" onclick="openModal('terms'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="termsLink">Termos de Serviço</a>
@@ -231,11 +151,10 @@
       <a href="#" onclick="openModal('contact'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="contactLink">Contacto & Suporte</a>
     </div>
     <p id="copyrightText" data-i18n="copyright">
-      © 2026 FÕCL MEDIA Digital. Todos os direitos reservados. Processamento seguro via Stripe.
+      © 2026 FÕCL MEDIA Digital. Todos os direitos reservados.
     </p>
   </footer>
 
-  <!-- Legal Modal Window -->
   <div class="modal-overlay" id="legalModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
@@ -250,9 +169,7 @@
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
 
-    function toggleLangDropdown() {
-      document.getElementById('langDropdown').classList.toggle('show');
-    }
+    function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
     document.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.lang-switcher-wrapper');
@@ -272,32 +189,31 @@
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
       const urlParams = new URLSearchParams(window.location.search);
-      const pkgId = urlParams.get('pkg') || 'vip';
+      const pkgId = urlParams.get('pkg') || 'starter'; // Default to Starter to show locked cards
 
-      const pkg = APP_CONFIG.packages.find(p => p.id === pkgId) || APP_CONFIG.packages[1];
+      const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
+      const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
+      const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
+      const activePkg = APP_CONFIG.packages.find(p => p.id === pkgId) || starterPkg;
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
-      document.title = t.siteTitle;
+      document.title = `${t.siteTitle} — ${activePkg.name}`;
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-          el.innerText = t[key];
-        }
+        if (t[key]) { el.innerText = t[key]; }
       });
 
-      // Render Individual Files Grid
-      const grid = document.getElementById('fileDownloadsGrid');
-      grid.innerHTML = '';
+      // Render Unlocked Files
+      const unlockedGrid = document.getElementById('unlockedFilesGrid');
+      unlockedGrid.innerHTML = '';
 
-      pkg.files.forEach((file, index) => {
+      activePkg.files.forEach((file, index) => {
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
-
         let icon = '🎨';
-        if (file.name.endsWith('.mp4') || file.name.endsWith('.mov')) icon = '🎬';
-        if (file.name.endsWith('.zip') || file.name.endsWith('.rar')) icon = '📦';
+        if (file.name.endsWith('.mp4')) icon = '🎬';
         if (file.name.endsWith('.pdf')) icon = '📄';
 
         card.innerHTML = `
@@ -310,56 +226,55 @@
             ${t.btnDownloadNow || 'DOWNLOAD'}
           </a>
         `;
-
-        grid.appendChild(card);
+        unlockedGrid.appendChild(card);
       });
 
-      // Master ZIP package button details
-      document.getElementById('zipDownloadBtn').href = pkg.zipDownloadUrl;
-      document.getElementById('zipFileSizeVal').innerText = pkg.zipFileSize;
+      document.getElementById('zipDownloadBtn').href = activePkg.zipDownloadUrl;
+      document.getElementById('zipFileSizeVal').innerText = activePkg.zipFileSize;
 
-      // Render Order Bump / Upsell Grid (Other available package tiers)
-      renderOrderBumps(pkgId, t);
-    }
+      // Render Locked Files
+      const lockedGrid = document.getElementById('lockedFilesGrid');
+      lockedGrid.innerHTML = '';
 
-    function renderOrderBumps(currentPkgId, t) {
-      const bumpGrid = document.getElementById('bumpGrid');
-      bumpGrid.innerHTML = '';
+      const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
+      const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
 
-      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== currentPkgId);
+      let lockedFiles = [];
 
-      if (otherPackages.length === 0) {
-        document.getElementById('order-bump-section').style.display = 'none';
-        return;
+      if (pkgId === 'starter') {
+        lockedFiles = [
+          { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
+          { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
+          { name: "Design sem nome.mp4", size: "30.4 MB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
+          { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
+          { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
+        ];
+      } else if (pkgId === 'vip') {
+        lockedFiles = [
+          { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
+          { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
+        ];
+      } else {
+        // Ultimate Vault
+        lockedFiles = [
+          { name: "ULTIMATE_VIP_PRIVATE_DROPS_2026.zip", size: "4.5 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício" }
+        ];
       }
 
-      otherPackages.forEach(pkg => {
-        const bumpCard = document.createElement('div');
-        bumpCard.className = 'bump-pkg-card';
-
-        let name = t.starterTitle;
-        if (pkg.id === 'vip') name = t.vipTitle;
-        if (pkg.id === 'ultimate') name = t.ultimateTitle;
-
-        // Use fixed EUR base price with dynamic USD conversion formatting
-        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
-
-        bumpCard.innerHTML = `
-          <div class="bump-pkg-header">
-            <div class="bump-pkg-name">${name}</div>
-            <div class="bump-pkg-price">${priceFormatted}</div>
-            <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
-              ✓ ${pkg.itemCount}
-            </div>
+      lockedFiles.forEach(file => {
+        const card = document.createElement('div');
+        card.className = 'file-item-card locked-item';
+        card.innerHTML = `
+          <div class="file-icon-box locked-icon">🔒</div>
+          <div class="file-info-col">
+            <div class="file-name-text" title="${file.name}">${file.name}</div>
+            <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
           </div>
-
-          <a href="${pkg.stripeUrl}" class="bump-btn" target="_blank" rel="noopener">
-            <span>${t.btnOrderBump || '⚡ Adicionar este Pacote Agora'}</span>
-            <span>→</span>
+          <a href="${file.url}" class="btn-file-unlock" target="_blank" rel="noopener">
+            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${file.price})
           </a>
         `;
-
-        bumpGrid.appendChild(bumpCard);
+        lockedGrid.appendChild(card);
       });
     }
 
@@ -367,28 +282,13 @@
       const modal = document.getElementById('legalModal');
       const title = document.getElementById('modalTitle');
       const body = document.getElementById('modalBody');
-
-      if (type === 'terms') {
-        title.innerText = "Termos de Serviço — FÕCL MEDIA Digital";
-        body.innerHTML = "<p>Ao adquirir os nossos pacotes digitais, recebe uma licença pessoal, não transferível, para descarregar e visualizar o conteúdo fornecido. Faturação processada de forma segura por Stripe.</p>";
-      } else if (type === 'privacy') {
-        title.innerText = "Política de Privacidade";
-        body.innerHTML = "<p>Respeitamos a sua privacidade a 100%. Nenhum dado pessoal é partilhado com terceiros. As transações são desencriptadas com padrão SSL de 256-bit.</p>";
-      } else if (type === 'refund') {
-        title.innerText = "Política de Reembolso";
-        body.innerHTML = "<p>Como se trata de produtos digitais de download instantâneo, os reembolsos são analisados individualmente pelo suporte ao cliente através do email support@focldownloads.online.</p>";
-      } else if (type === 'contact') {
-        title.innerText = "Contacto & Suporte";
-        body.innerHTML = "<p>Dúvidas ou apoio técnico com o seu download? Contacte-nos 24/7 pelo email: <strong>support@focldownloads.online</strong></p>";
-      }
-
+      if (type === 'terms') { title.innerText = "Termos de Serviço"; body.innerHTML = "<p>Licença pessoal e não transferível. Faturação via Stripe.</p>"; }
+      else if (type === 'privacy') { title.innerText = "Política de Privacidade"; body.innerHTML = "<p>Dados 100% protegidos com encriptação SSL 256-bit.</p>"; }
+      else if (type === 'refund') { title.innerText = "Política de Reembolso"; body.innerHTML = "<p>Suporte 24/7 em support@focldownloads.online.</p>"; }
+      else if (type === 'contact') { title.innerText = "Contacto"; body.innerHTML = "<p>Email: support@focldownloads.online</p>"; }
       modal.style.display = 'flex';
     }
-
-    function closeModal() {
-      document.getElementById('legalModal').style.display = 'none';
-    }
-
+    function closeModal() { document.getElementById('legalModal').style.display = 'none'; }
     document.addEventListener('DOMContentLoaded', renderDashboard);
   </script>
 </body>
