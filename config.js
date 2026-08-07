@@ -1,13 +1,19 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Supports multi-model dynamic switching via ?m=model_id
+ * Base Currency: EUR (€) - All Stripe Payment Links are fixed in EUR.
  */
 
 window.APP_CONFIG = {
   defaultModel: "exclusive",
   defaultLang: "pt-PT",
+  baseCurrency: "EUR",
+  
+  // Approximate Live Exchange Rates relative to 1 EUR
+  exchangeRates: {
+    EUR: 1.0,
+    USD: 1.09 // 1 EUR = 1.09 USD
+  },
 
-  // Model Profiles Database
   models: {
     exclusive: {
       id: "exclusive",
@@ -28,12 +34,11 @@ window.APP_CONFIG = {
     }
   },
 
-  // Stripe Payment Links & Individual Media Download Items
+  // Base Prices fixed in Euros (€)
   packages: [
     {
       id: "starter",
-      priceUSD: "$19.99",
-      priceEUR: "19,99 €",
+      priceEUR: 19.99,
       badge: "POPULAR",
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_starter_link",
@@ -48,8 +53,7 @@ window.APP_CONFIG = {
     },
     {
       id: "vip",
-      priceUSD: "$39.99",
-      priceEUR: "39,99 €",
+      priceEUR: 39.99,
       badge: "RECOMENDADO",
       isHighlighted: true,
       stripeUrl: "https://buy.stripe.com/test_vip_link",
@@ -66,8 +70,7 @@ window.APP_CONFIG = {
     },
     {
       id: "ultimate",
-      priceUSD: "$69.99",
-      priceEUR: "69,99 €",
+      priceEUR: 69.99,
       badge: "VAULT COMPLETO",
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_ultimate_link",
@@ -84,6 +87,16 @@ window.APP_CONFIG = {
       ]
     }
   ],
+
+  // Format price dynamically: Fixed EUR base + auto conversion display for USD
+  formatPrice: function(priceEUR, lang) {
+    if (lang === 'en') {
+      const convertedUSD = (priceEUR * window.APP_CONFIG.exchangeRates.USD).toFixed(2);
+      return `$${convertedUSD} <span style="font-size: 0.75em; color: var(--text-dim);">(${priceEUR.toFixed(2)} €)</span>`;
+    }
+    // European comma decimal format
+    return `${priceEUR.toFixed(2).replace('.', ',')} €`;
+  },
 
   merchantName: "FÕCL MEDIA DIGITAL",
   supportEmail: "support@focldownloads.online"

@@ -287,7 +287,7 @@
         }
       });
 
-      // Render Individual Files Grid (Matching user screenshot)
+      // Render Individual Files Grid
       const grid = document.getElementById('fileDownloadsGrid');
       grid.innerHTML = '';
 
@@ -322,7 +322,6 @@
       renderOrderBumps(pkgId, t);
     }
 
-    // Render Order Bump cards for other package tiers
     function renderOrderBumps(currentPkgId, t) {
       const bumpGrid = document.getElementById('bumpGrid');
       bumpGrid.innerHTML = '';
@@ -342,12 +341,13 @@
         if (pkg.id === 'vip') name = t.vipTitle;
         if (pkg.id === 'ultimate') name = t.ultimateTitle;
 
-        const price = (currentLang === 'en') ? pkg.priceUSD : pkg.priceEUR;
+        // Use fixed EUR base price with dynamic USD conversion formatting
+        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
 
         bumpCard.innerHTML = `
           <div class="bump-pkg-header">
             <div class="bump-pkg-name">${name}</div>
-            <div class="bump-pkg-price">${price}</div>
+            <div class="bump-pkg-price">${priceFormatted}</div>
             <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
               ✓ ${pkg.itemCount}
             </div>
