@@ -1,349 +1,137 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIP Pass — Acesso a Conteúdo Digital Exclusivo</title>
-  <meta name="description" content="Acesso exclusivo a coleções digitais HD e galerias de criadores. Checkout discreto e seguro via Stripe.">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px);
-      z-index: 999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #12141d;
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      max-width: 600px;
-      width: 100%;
-      padding: 32px;
-      max-height: 80vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  </style>
+  <title>Thank You for Your Purchase — FÕCL MEDIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background Glow Animations -->
-  <div class="bg-glow-container">
-    <div class="glow-blob glow-blob-1"></div>
-    <div class="glow-blob glow-blob-2"></div>
-  </div>
-
-  <!-- Top Sticky Navigation Bar -->
-  <header class="top-nav">
-    <a href="#" class="brand-logo">
-      <span>FÕCL MEDIA</span>
-      <span class="brand-badge">VIP CLUB</span>
+  <!-- ══ NAV ══ -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 12 12"><rect width="12" height="12"/></svg>
+      FÕCL
     </a>
+    <select id="lang-select" class="lang-selector">
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Português</option>
+      <option value="nl">Nederlands</option>
+    </select>
+  </nav>
 
-    <!-- Language Selector Dropdown -->
-    <div class="lang-switcher-wrapper">
-      <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
-        <span id="currentFlag">🇵🇹</span>
-        <span id="currentLangLabel">Português (PT)</span>
-        <span style="font-size: 0.7rem;">▼</span>
-      </button>
-      <div class="lang-dropdown" id="langDropdown">
-        <button class="lang-option" onclick="changeLanguage('pt-PT')"><span>🇵🇹</span> Português (PT)</button>
-        <button class="lang-option" onclick="changeLanguage('en')"><span>🇬🇧</span> English</button>
-        <button class="lang-option" onclick="changeLanguage('fr')"><span>🇫🇷</span> Français</button>
-        <button class="lang-option" onclick="changeLanguage('it')"><span>🇮🇹</span> Italiano</button>
-        <button class="lang-option" onclick="changeLanguage('de')"><span>🇩🇪</span> Deutsch</button>
-        <button class="lang-option" onclick="changeLanguage('es')"><span>🇪🇸</span> Español</button>
-      </div>
-    </div>
+  <!-- ══ HERO HEADER ══ -->
+  <header class="header-hero">
+    <h1 id="page-title">Thank You for Your Purchase</h1>
+    <p id="page-subtitle">Your digital product delivery dashboard</p>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="main-wrapper">
+  <!-- ══ MAIN LAYOUT ══ -->
+  <main class="container">
+    
+    <!-- ══ WATCH FIRST CARD ══ -->
+    <section class="premium-card">
+      <span class="card-label" id="watch-first-label">WATCH FIRST</span>
+      <h2 class="card-title" id="watch-first-title">Thank You for Your Purchase</h2>
+      <p class="card-desc" id="watch-first-desc" style="margin-bottom: 24px;">
+        Please watch this short walkthrough video to understand how to correctly set up and optimize your new LUTs.
+      </p>
 
-    <!-- Creator Header Banner & Bio Card -->
-    <section class="creator-card">
-      <div class="banner-img-container">
-        <img id="creatorBanner" src="./assets/banner.jpg" alt="Creator Banner">
-        <div class="banner-overlay"></div>
+      <div class="video-container" style="margin-bottom: 24px;">
+        <video controls playsinline>
+          <source src="Design sem nome.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
-      <div class="profile-info-bar">
-        <div class="avatar-wrapper">
-          <img id="creatorAvatar" class="avatar-img" src="./assets/avatar.jpg" alt="Creator Profile">
-          <div class="verified-icon">✓</div>
-        </div>
-        <h1 class="creator-name" id="creatorName">Sophia VIP</h1>
-        <div class="creator-handle" id="creatorHandle">@sophia_official</div>
-        <p class="creator-bio" id="creatorBio">
-          Dashboard oficial de entrega de conteúdos digitais, pacotes de fotos HD e coleções de vídeo de alta resolução.
-        </p>
 
-        <div class="stats-pill-container">
-          <div class="stat-pill">
-            <span style="color: #3b82f6;">✓</span>
-            <span data-i18n="verifiedCreator">Criador Verificado</span>
-          </div>
-          <div class="stat-pill">
-            <span style="color: #f59e0b;">★</span>
-            <span data-i18n="activeMembers">Mais de 1.400 membros ativos</span>
-          </div>
-          <div class="stat-pill">
-            <span>⚡</span>
-            <span data-i18n="instantDelivery">Entrega Instantânea</span>
-          </div>
+      <div style="display: flex; justify-content: center; margin-top: 10px;">
+        <a href="#downloads-section" id="btn-skip-to-download" class="download-btn" style="background: var(--green); padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+          🚀 Skip to Downloads
+        </a>
+      </div>
+    </section>
+
+    <!-- ══ INSTRUCTION GUIDE CARD ══ -->
+    <section class="premium-card">
+      <span class="card-label" id="guide-label">COLOUR GRADING GUIDE</span>
+      <h2 class="card-title" id="guide-subtitle">How to Apply a LUT in Final Cut Pro</h2>
+      <p class="card-desc" id="guide-desc">
+        A seven-step walkthrough for loading your FOCL Media LUTs and creating a clean, cinematic grade.
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <p class="step-num" id="step-1-title">Step 1</p>
+          <p class="step-text" id="step-1-desc">Select the clip (or adjustment layer) you want to colour grade.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-2-title">Step 2</p>
+          <p class="step-text" id="step-2-desc">Open the Effects Browser (bottom right of the screen) and search for Custom LUT.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-3-title">Step 3</p>
+          <p class="step-text" id="step-3-desc">Drag and drop Custom LUT onto your selected clip or adjustment layer.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-4-title">Step 4</p>
+          <p class="step-text" id="step-4-desc">Open the Inspector (top right), then under Custom LUT click Choose Custom LUT.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-5-title">Step 5</p>
+          <p class="step-text" id="step-5-desc">Locate your downloaded LUT folder and import it.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-6-title">Step 6</p>
+          <p class="step-text" id="step-6-desc">Your LUTs will now appear inside the Custom LUT dropdown menu. Choose the LUT you would like to use.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num" id="step-7-title">Step 7</p>
+          <p class="step-text" id="step-7-desc">Adjust exposure, contrast and white balance to achieve the best possible cinematic look.</p>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Packages Section Title -->
-    <h2 class="section-title" data-i18n="heroBadge">Conteúdo Digital Exclusivo</h2>
-    <p class="section-subtitle" data-i18n="siteTitle">Selecione o seu pacote e obtenha acesso imediato após o pagamento.</p>
-
-    <!-- Package Cards Grid -->
-    <section class="packages-grid" id="packagesGrid">
-      <!-- Dynamic Package Cards injected by JavaScript -->
-    </section>
-
-    <!-- Discreet Stripe Security Box -->
-    <section class="guarantee-box">
-      <p id="guaranteeText" data-i18n="guaranteeText">
-        🔒 Checkout 100% Seguro e Discreto pela Stripe. Faturação neutra no seu extrato bancário.
+    <!-- ══ TUTORIAL CARD ══ -->
+    <section class="premium-card">
+      <span class="card-label" id="tutorial-label">COLOUR GRADING TUTORIAL</span>
+      <h2 class="card-title" id="tutorial-subtitle">Watch the Full Walkthrough</h2>
+      <p class="card-desc" id="tutorial-desc" style="margin-bottom: 0;">
+        For a complete walkthrough showing exactly how we apply and fine-tune our LUTs, watch the tutorial above. It explains how to correctly adjust exposure, white balance and contrast to achieve the best results from every LUT.
       </p>
     </section>
 
-    <!-- Security Features Grid -->
-    <section class="security-grid">
-      <div class="security-card">
-        <div class="sec-icon">🔒</div>
-        <div class="sec-title" data-i18n="sslSecured">Desencriptação SSL 256-bit</div>
-      </div>
-      <div class="security-card">
-        <div class="sec-icon">🛡️</div>
-        <div class="sec-title" data-i18n="discreetBilling">Faturação Discreta</div>
-      </div>
-      <div class="security-card">
-        <div class="sec-icon">⚡</div>
-        <div class="sec-title" data-i18n="instantDelivery">Entrega Instantânea</div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="faq-section">
-      <h2 class="section-title" data-i18n="faqTitle" style="margin-bottom: 24px;">Perguntas Frequentes</h2>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span data-i18n="faqQ1">Como recebo os meus ficheiros após o pagamento?</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer" data-i18n="faqA1">
-          Assim que concluir o pagamento seguro na Stripe, será automaticamente redirecionado para a página de download com os seus ficheiros prontos.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span data-i18n="faqQ2">Como aparecerá a compra no meu extrato bancário?</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer" data-i18n="faqA2">
-          A sua privacidade é 100% garantida. O nome no seu extrato será discreto e neutro (ex: 'FÕCL MEDIA DIGITAL').
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span data-i18n="faqQ3">O pagamento é único ou é uma assinatura recorrente?</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer" data-i18n="faqA3">
-          Trata-se de um pagamento único. Não haverá qualquer cobrança futura ou subscrição.
-        </div>
+    <!-- ══ DOWNLOADS CARD ══ -->
+    <section class="premium-card" id="downloads-section">
+      <span class="card-label" id="download-title">YOUR DOWNLOADS</span>
+      <p class="card-desc" id="download-subtitle" style="margin-bottom: 30px;">Access your files instantly</p>
+      
+      <div class="download-grid" id="download-grid">
+        <!-- Rendered dynamically via script.js -->
       </div>
     </section>
 
   </main>
 
-  <!-- Legal Footer with Modals -->
-  <footer>
-    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
-      <a href="#" onclick="openModal('terms'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="termsLink">Termos de Serviço</a>
-      <a href="#" onclick="openModal('privacy'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="privacyLink">Política de Privacidade</a>
-      <a href="#" onclick="openModal('refund'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="refundLink">Política de Reembolso</a>
-      <a href="#" onclick="openModal('contact'); return false;" style="color: var(--text-muted); text-decoration: none;" data-i18n="contactLink">Contacto & Suporte</a>
+  <!-- ══ FOOTER ══ -->
+  <footer style="display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.07); text-align: center;">
+    <div class="footer-logo" id="footer-logo">FÕCL MEDIA</div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; font-size: 12px; color: var(--gray);">
+      <a href="terms.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Terms of Service</a>
+      <a href="privacy.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+      <a href="refund.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Refund Policy</a>
+      <a href="contact.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Contact Info</a>
     </div>
-    <p id="copyrightText" data-i18n="copyright">
-      © 2026 FÕCL MEDIA Digital. Todos os direitos reservados. Processamento seguro via Stripe.
-    </p>
   </footer>
 
-  <!-- Legal Modal Window -->
-  <div class="modal-overlay" id="legalModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <h3 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 16px;"></h3>
-      <div id="modalBody" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="config.js"></script>
-  <script src="i18n.js"></script>
-  <script>
-    let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-
-    function getActiveModel() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const modelId = urlParams.get('m') || urlParams.get('model') || APP_CONFIG.defaultModel;
-      return APP_CONFIG.models[modelId] || APP_CONFIG.models.exclusive;
-    }
-
-    function toggleLangDropdown() {
-      document.getElementById('langDropdown').classList.toggle('show');
-    }
-
-    document.addEventListener('click', (e) => {
-      const wrapper = document.querySelector('.lang-switcher-wrapper');
-      if (wrapper && !wrapper.contains(e.target)) {
-        document.getElementById('langDropdown').classList.remove('show');
-      }
-    });
-
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      item.classList.toggle('active');
-    }
-
-    function changeLanguage(langCode) {
-      if (!TRANSLATIONS[langCode]) return;
-      currentLang = langCode;
-      localStorage.setItem('user_lang', langCode);
-      document.getElementById('langDropdown').classList.remove('show');
-      renderApp();
-    }
-
-    function renderApp() {
-      const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
-      const model = getActiveModel();
-
-      document.getElementById('currentFlag').innerText = t.flag;
-      document.getElementById('currentLangLabel').innerText = t.langName;
-      document.title = t.siteTitle;
-
-      document.getElementById('creatorName').innerText = model.name;
-      document.getElementById('creatorHandle').innerText = model.username;
-      document.getElementById('creatorAvatar').src = model.avatar;
-      document.getElementById('creatorBanner').src = model.banner;
-      document.getElementById('creatorBio').innerText = model.bio[currentLang] || model.bio['pt-PT'];
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-          el.innerText = t[key];
-        }
-      });
-
-      renderPackages(t);
-    }
-
-    function renderPackages(t) {
-      const grid = document.getElementById('packagesGrid');
-      grid.innerHTML = '';
-
-      APP_CONFIG.packages.forEach(pkg => {
-        const card = document.createElement('div');
-        card.className = `package-card ${pkg.isHighlighted ? 'highlighted' : ''}`;
-
-        let title = t.starterTitle;
-        let subtitle = t.starterSubtitle;
-        let btnText = t.btnCheckout;
-
-        if (pkg.id === 'vip') {
-          title = t.vipTitle;
-          subtitle = t.vipSubtitle;
-          btnText = t.btnUnlockVip;
-        } else if (pkg.id === 'ultimate') {
-          title = t.ultimateTitle;
-          subtitle = t.ultimateSubtitle;
-          btnText = t.btnGetVault;
-        }
-
-        const price = (currentLang === 'en') ? pkg.priceUSD : pkg.priceEUR;
-        const stripeRedirect = `download.html?pkg=${pkg.id}&lang=${currentLang}`;
-        const stripeUrl = pkg.stripeUrl.startsWith('http') ? pkg.stripeUrl : stripeRedirect;
-
-        card.innerHTML = `
-          ${pkg.badge ? `<div class="card-badge">${pkg.badge}</div>` : ''}
-          <h3 class="pkg-title">${title}</h3>
-          <p class="pkg-subtitle">${subtitle}</p>
-
-          <div class="pkg-price-row">
-            <span class="pkg-price">${price}</span>
-            <span class="pkg-period">/ ${t.featNoSubscription.split('—')[0]}</span>
-          </div>
-
-          <ul class="features-list">
-            <li><span class="check-icon">✓</span> ${t.featInstantDownload} (${pkg.itemCount})</li>
-            <li><span class="check-icon">✓</span> ${t.featHighRes}</li>
-            <li><span class="check-icon">✓</span> ${t.featPrivateLink}</li>
-            <li><span class="check-icon">✓</span> ${t.featNoSubscription}</li>
-            ${pkg.id !== 'starter' ? `<li><span class="check-icon">✓</span> ${t.featBonusMedia}</li>` : ''}
-            ${pkg.id === 'ultimate' ? `<li><span class="check-icon">✓</span> ${t.featPriorityAccess}</li>` : ''}
-          </ul>
-
-          <a href="${stripeUrl}" class="btn-cta ${pkg.isHighlighted ? 'btn-gold' : 'btn-primary'}">
-            <span>${btnText}</span>
-            <span>→</span>
-          </a>
-        `;
-
-        grid.appendChild(card);
-      });
-    }
-
-    function openModal(type) {
-      const modal = document.getElementById('legalModal');
-      const title = document.getElementById('modalTitle');
-      const body = document.getElementById('modalBody');
-
-      if (type === 'terms') {
-        title.innerText = "Termos de Serviço — FÕCL MEDIA Digital";
-        body.innerHTML = "<p>Ao adquirir os nossos pacotes digitais, recebe uma licença pessoal, não transferível, para descarregar e visualizar o conteúdo fornecido. Faturação processada de forma segura por Stripe.</p>";
-      } else if (type === 'privacy') {
-        title.innerText = "Política de Privacidade";
-        body.innerHTML = "<p>Respeitamos a sua privacidade a 100%. Nenhum dado pessoal é partilhado com terceiros. As transações são desencriptadas com padrão SSL de 256-bit.</p>";
-      } else if (type === 'refund') {
-        title.innerText = "Política de Reembolso";
-        body.innerHTML = "<p>Como se trata de produtos digitais de download instantâneo, os reembolsos são analisados individualmente pelo suporte ao cliente através do email support@focldownloads.online.</p>";
-      } else if (type === 'contact') {
-        title.innerText = "Contacto & Suporte";
-        body.innerHTML = "<p>Dúvidas ou apoio técnico com o seu download? Contacte-nos 24/7 pelo email: <strong>support@focldownloads.online</strong></p>";
-      }
-
-      modal.style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('legalModal').style.display = 'none';
-    }
-
-    document.addEventListener('DOMContentLoaded', renderApp);
-  </script>
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
