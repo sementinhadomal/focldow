@@ -567,7 +567,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT "YOUR DOWNLOADS" GRID SECTION
+   DOWNLOAD CARDS & LOCKED FILE ITEM CARDS STYLING
    ========================================================================== */
 .downloads-panel-card {
   background: #0d0f17;
@@ -685,111 +685,67 @@ body {
 }
 
 /* ==========================================================================
-   ORDER BUMP / UPSELL SECTION STYLING (ON DOWNLOAD PAGE)
+   LOCKED FILE CARDS (ORDER BUMP INTEGRATED INTO FILE GRID)
    ========================================================================== */
-.order-bump-card {
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.06) 0%, rgba(139, 92, 246, 0.08) 100%), #0e111a;
-  border: 2px dashed var(--primary-gold);
-  border-radius: 20px;
-  padding: 32px 24px;
-  margin: 32px auto 40px;
-  box-shadow: 0 16px 40px rgba(245, 158, 11, 0.15);
+.file-item-card.locked-item {
+  background: rgba(18, 20, 30, 0.6);
+  border: 1px dashed rgba(245, 158, 11, 0.45);
   position: relative;
-  overflow: hidden;
 }
 
-.bump-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--primary-gold), #d97706);
-  color: #000;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 0.8rem;
-  padding: 4px 16px;
-  border-radius: var(--radius-full);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.bump-title {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.bump-subtitle {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 28px;
-}
-
-.bump-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.bump-pkg-card {
-  background: #141724;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  border-radius: 14px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-}
-
-.bump-pkg-card:hover {
-  transform: translateY(-4px);
+.file-item-card.locked-item:hover {
   border-color: var(--primary-gold);
-  box-shadow: 0 10px 24px var(--primary-gold-glow);
+  background: rgba(26, 29, 44, 0.9);
+  box-shadow: 0 6px 20px var(--primary-gold-glow);
 }
 
-.bump-pkg-header {
-  margin-bottom: 16px;
-}
-
-.bump-pkg-name {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #ffffff;
-}
-
-.bump-pkg-price {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.8rem;
+.file-icon-box.locked-icon {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   color: var(--primary-gold);
-  margin-top: 4px;
 }
 
-.bump-btn {
-  background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
-  color: #ffffff;
-  text-decoration: none;
+.btn-file-unlock {
+  background: linear-gradient(135deg, var(--primary-gold), #d97706);
+  color: #000000;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 0.95rem;
-  padding: 12px 20px;
-  border-radius: 10px;
-  display: flex;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px var(--accent-purple-glow);
-  margin-top: 16px;
+  box-shadow: 0 4px 16px var(--primary-gold-glow);
+  white-space: nowrap;
 }
 
-.bump-btn:hover {
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
-  box-shadow: 0 8px 24px var(--accent-purple-glow);
+.btn-file-unlock:hover {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  box-shadow: 0 8px 24px var(--primary-gold-glow);
   transform: translateY(-2px);
+}
+
+.locked-section-divider {
+  border-top: 1px dashed rgba(245, 158, 11, 0.3);
+  margin: 32px 0 24px;
+  padding-top: 24px;
+}
+
+.locked-header-tag {
+  color: var(--primary-gold);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 /* Footer */
@@ -809,5 +765,4 @@ footer {
   .profile-info-bar { padding: 0 16px 24px; }
   .avatar-img { width: 96px; height: 96px; }
   .file-downloads-grid { grid-template-columns: 1fr; }
-  .bump-grid { grid-template-columns: 1fr; }
 }

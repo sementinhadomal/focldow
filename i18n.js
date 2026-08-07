@@ -68,11 +68,11 @@ window.TRANSLATIONS = {
     dlFileSize: "Tamanho do Ficheiro:",
     dlAccessKey: "Chave de Acesso Pessoal:",
 
-    // Order Bump / Upsell Translations
-    orderBumpTag: "🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)",
-    orderBumpTitle: "Complete a sua Coleção com os Pacotes Superiores",
-    orderBumpSub: "Adicione os pacotes restantes à sua conta com acesso instantâneo:",
-    btnOrderBump: "⚡ Adicionar este Pacote Agora",
+    // Locked Files / Upgrades Translations
+    lockedSectionTitle: "🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)",
+    lockedSectionSub: "Desbloqueie os conteúdos superiores instantaneamente em 1 clique:",
+    btnUnlockFile: "🔒 DESBLOQUEAR",
+    allUnlockedBadge: "✨ PARABÉNS! TODOS OS FICHEIROS E VÍDEOS ESTÃO 100% DESBLOQUEADOS!",
     
     termsLink: "Termos de Serviço",
     privacyLink: "Política de Privacidade",
@@ -145,10 +145,10 @@ window.TRANSLATIONS = {
     dlFileSize: "File Size:",
     dlAccessKey: "Personal Access Key:",
 
-    orderBumpTag: "🔥 EXCLUSIVE UPGRADE OFFER (ORDER BUMP)",
-    orderBumpTitle: "Complete Your Collection with Higher Tier Packs",
-    orderBumpSub: "Add remaining packs to your account with instant 1-click access:",
-    btnOrderBump: "⚡ Add This Pack Now",
+    lockedSectionTitle: "🔒 LOCKED PREMIUM FILES (UPGRADES AVAILABLE)",
+    lockedSectionSub: "Unlock higher tier content instantly with 1-click access:",
+    btnUnlockFile: "🔒 UNLOCK",
+    allUnlockedBadge: "✨ CONGRATULATIONS! ALL FILES & VIDEOS ARE 100% UNLOCKED!",
     
     termsLink: "Terms of Service",
     privacyLink: "Privacy Policy",
@@ -221,10 +221,10 @@ window.TRANSLATIONS = {
     dlFileSize: "Taille du Fichier :",
     dlAccessKey: "Clé d'Accès Personnelle :",
 
-    orderBumpTag: "🔥 OFFRE DE SURCLASSEMENT EXCLUSIVE (ORDER BUMP)",
-    orderBumpTitle: "Complétez votre Collection avec les Packs Supérieurs",
-    orderBumpSub: "Ajoutez les packs restants à votre compte en 1 clic :",
-    btnOrderBump: "⚡ Ajouter ce Pack Maintenant",
+    lockedSectionTitle: "🔒 FICHIERS PREMIUM VERROUILLÉS (UPGRADES DISPONIBLES)",
+    lockedSectionSub: "Débloquez les contenus supérieurs instantanément en 1 clic :",
+    btnUnlockFile: "🔒 DÉBLOQUER",
+    allUnlockedBadge: "✨ FÉLICITATIONS ! TOUS LES FICHIERS ET VIDÉOS SONT 100% DÉBLOQUÉS !",
     
     termsLink: "Conditions d'Utilisation",
     privacyLink: "Politique de Confidentialité",
@@ -297,10 +297,10 @@ window.TRANSLATIONS = {
     dlFileSize: "Dimensione File:",
     dlAccessKey: "Chiave di Accesso Personale:",
 
-    orderBumpTag: "🔥 OFFERTA DI UPGRADE ESCLUSIVA (ORDER BUMP)",
-    orderBumpTitle: "Completa la tua Collezione con i Pacchetti Superiori",
-    orderBumpSub: "Aggiungi i pacchetti rimanenti al tuo account con 1 clic:",
-    btnOrderBump: "⚡ Aggiungi questo Pacchetto Ora",
+    lockedSectionTitle: "🔒 FILE PREMIUM BLOCCATI (UPGRADE DISPONIBILI)",
+    lockedSectionSub: "Sblocca i contenuti superiori all'istante con 1 clic:",
+    btnUnlockFile: "🔒 SBLOCCA",
+    allUnlockedBadge: "✨ CONGRATULAZIONI! TUTTI I FILE E I VIDEO SONO SBLOCCATI AL 100%!",
     
     termsLink: "Termini di Servizio",
     privacyLink: "Informativa sulla Privacy",
@@ -373,10 +373,10 @@ window.TRANSLATIONS = {
     dlFileSize: "Dateigröße:",
     dlAccessKey: "Persönlicher Zugriffsschlüssel:",
 
-    orderBumpTag: "🔥 EXKLUSIVES UPGRADE-ANGEBOT (ORDER BUMP)",
-    orderBumpTitle: "Vervollständigen Sie Ihre Sammlung mit höheren Paketen",
-    orderBumpSub: "Fügen Sie verbleibende Pakete mit 1 Klick zu Ihrem Konto hinzu:",
-    btnOrderBump: "⚡ Dieses Paket jetzt hinzufügen",
+    lockedSectionTitle: "🔒 GESPERRTE PREMIUM-DATEIEN (UPGRADES VERFÜGBAR)",
+    lockedSectionSub: "Schalten Sie höherwertige Inhalte sofort mit 1 Klick frei:",
+    btnUnlockFile: "🔒 FREISCHALTEN",
+    allUnlockedBadge: "✨ GLÜCKWUNSCH! ALLE DATEIEN & VIDEOS SIND ZU 100% FREIGESCHALTET!",
     
     termsLink: "Nutzungsbedingungen",
     privacyLink: "Datenschutz-Bestimmungen",
@@ -449,10 +449,10 @@ window.TRANSLATIONS = {
     dlFileSize: "Tamaño del Archivo:",
     dlAccessKey: "Clave de Acceso Personal:",
 
-    orderBumpTag: "🔥 OFERTA DE MEJORA EXCLUSIVA (ORDER BUMP)",
-    orderBumpTitle: "Completa tu Colección con los Paquetes Superiores",
-    orderBumpSub: "Añade los paquetes restantes a tu cuenta en 1 clic:",
-    btnOrderBump: "⚡ Añadir este Paquete Ahora",
+    lockedSectionTitle: "🔒 ARCHIVOS PREMIUM BLOQUEADOS (UPGRADES DISPONIBLES)",
+    lockedSectionSub: "Desbloquea los contenidos superiores al instante en 1 clic:",
+    btnUnlockFile: "🔒 DESBLOQUEAR",
+    allUnlockedBadge: "✨ ¡FELICIDADES! ¡TODOS LOS ARCHIVOS Y VIDEOS ESTÁN 100% DESBLOQUEADOS!",
     
     termsLink: "Términos de Servicio",
     privacyLink: "Política de Privacidad",

@@ -63,7 +63,7 @@
     <!-- Hero Section -->
     <div class="hero-dash">
       <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.5rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Pass Deluxe VIP</p>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Pass Deluxe VIP (39,99 €)</p>
       
       <a href="#downloads-section" class="skip-btn" data-i18n="skipToDownloads">
         🚀 Ir diretamente para Downloads
@@ -108,29 +108,29 @@
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Dynamic Grid of Individual Files -->
-        <div class="file-downloads-grid" id="fileDownloadsGrid"></div>
+        <!-- Dynamic Grid of Unlocked VIP Files -->
+        <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
         <!-- Master ZIP Download CTA -->
-        <div style="margin-top: 32px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;">
+        <div style="margin-top: 28px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
           <a href="#" id="zipDownloadBtn" class="btn-cta btn-gold" style="display: inline-flex; width: auto; font-size: 1.1rem; padding: 16px 36px;" target="_blank" rel="noopener">
             <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Pacote Completo (.ZIP)</span>
           </a>
-          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">4.8 MB</strong>
+          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">35.2 MB</strong>
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- LOCKED PREMIUM VAULT FILES SECTION -->
+        <div class="locked-section-divider">
+          <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
+          <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
+            Desbloqueie o Vault Completo instantaneamente em 1 clique:
+          </div>
 
-    <!-- ORDER BUMP / UPSELL SECTION (SHOWS ULTIMATE VAULT & STARTER) -->
-    <section id="order-bump-section">
-      <div class="order-bump-card">
-        <div class="bump-badge" data-i18n="orderBumpTag">🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)</div>
-        <h2 class="bump-title" data-i18n="orderBumpTitle">Complete a sua Coleção com os Pacotes Superiores</h2>
-        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes restantes à sua conta com acesso instantâneo:</p>
-        <div class="bump-grid" id="bumpGrid"></div>
+          <div class="file-downloads-grid" id="lockedFilesGrid"></div>
+        </div>
+
       </div>
     </section>
 
@@ -167,7 +167,7 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "vip"; // Dedicated to Deluxe VIP Pack
+    const pkgId = "vip"; // Dedicated Deluxe VIP Pack (39,99 €)
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -188,7 +188,8 @@
 
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
-      const pkg = APP_CONFIG.packages.find(p => p.id === pkgId);
+      const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
+      const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -199,15 +200,14 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      const grid = document.getElementById('fileDownloadsGrid');
-      grid.innerHTML = '';
+      // Render Unlocked Files (VIP Pack items)
+      const unlockedGrid = document.getElementById('unlockedFilesGrid');
+      unlockedGrid.innerHTML = '';
 
-      pkg.files.forEach((file, index) => {
+      vipPkg.files.forEach((file, index) => {
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
-        let icon = '🎨';
-        if (file.name.endsWith('.mp4') || file.name.endsWith('.mov')) icon = '🎬';
-        if (file.name.endsWith('.zip')) icon = '📦';
+        let icon = file.name.endsWith('.mp4') ? '🎬' : '🎨';
 
         card.innerHTML = `
           <div class="file-icon-box">${icon}</div>
@@ -219,40 +219,37 @@
             ${t.btnDownloadNow || 'DOWNLOAD'}
           </a>
         `;
-        grid.appendChild(card);
+        unlockedGrid.appendChild(card);
       });
 
-      document.getElementById('zipDownloadBtn').href = pkg.zipDownloadUrl;
-      document.getElementById('zipFileSizeVal').innerText = pkg.zipFileSize;
+      document.getElementById('zipDownloadBtn').href = vipPkg.zipDownloadUrl;
+      document.getElementById('zipFileSizeVal').innerText = vipPkg.zipFileSize;
 
-      renderOrderBumps(t);
-    }
+      // Render Locked Files (Items from Ultimate Vault)
+      const lockedGrid = document.getElementById('lockedFilesGrid');
+      lockedGrid.innerHTML = '';
 
-    function renderOrderBumps(t) {
-      const bumpGrid = document.getElementById('bumpGrid');
-      bumpGrid.innerHTML = '';
-      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== pkgId);
+      const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
 
-      otherPackages.forEach(pkg => {
-        const bumpCard = document.createElement('div');
-        bumpCard.className = 'bump-pkg-card';
-        let name = (pkg.id === 'starter') ? t.starterTitle : t.ultimateTitle;
-        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
+      const lockedFiles = [
+        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
+        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
+      ];
 
-        bumpCard.innerHTML = `
-          <div class="bump-pkg-header">
-            <div class="bump-pkg-name">${name}</div>
-            <div class="bump-pkg-price">${priceFormatted}</div>
-            <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
-              ✓ ${pkg.itemCount}
-            </div>
+      lockedFiles.forEach(file => {
+        const card = document.createElement('div');
+        card.className = 'file-item-card locked-item';
+        card.innerHTML = `
+          <div class="file-icon-box locked-icon">🔒</div>
+          <div class="file-info-col">
+            <div class="file-name-text" title="${file.name}">${file.name}</div>
+            <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
           </div>
-          <a href="${pkg.stripeUrl}" class="bump-btn" target="_blank" rel="noopener">
-            <span>${t.btnOrderBump || '⚡ Adicionar este Pacote Agora'}</span>
-            <span>→</span>
+          <a href="${file.url}" class="btn-file-unlock" target="_blank" rel="noopener">
+            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${file.price})
           </a>
         `;
-        bumpGrid.appendChild(bumpCard);
+        lockedGrid.appendChild(card);
       });
     }
 

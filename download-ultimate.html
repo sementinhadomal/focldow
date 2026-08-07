@@ -22,6 +22,18 @@
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-content { background: #12141d; border: 1px solid var(--border-glow); border-radius: var(--radius-lg); max-width: 600px; width: 100%; padding: 32px; max-height: 80vh; overflow-y: auto; position: relative; }
     .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
+    .all-unlocked-banner {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #10b981;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-top: 24px;
+    }
   </style>
 </head>
 <body>
@@ -63,7 +75,7 @@
     <!-- Hero Section -->
     <div class="hero-dash">
       <h1 class="creator-name" data-i18n="dashThankYou" style="font-size: 2.5rem;">Obrigado pela sua Compra!</h1>
-      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Vault Total All-Access</p>
+      <p class="creator-bio" data-i18n="dashSub" style="margin: 8px auto 0;">O seu painel pessoal de entrega — Vault Total All-Access (69,99 €)</p>
       
       <a href="#downloads-section" class="skip-btn" data-i18n="skipToDownloads">
         🚀 Ir diretamente para Downloads
@@ -101,36 +113,31 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION FOR ULTIMATE VAULT -->
+    <!-- "YOUR DOWNLOADS" SECTION FOR ULTIMATE VAULT (ALL FILES UNLOCKED) -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Dynamic Grid of Individual Files -->
-        <div class="file-downloads-grid" id="fileDownloadsGrid"></div>
+        <!-- Dynamic Grid of All Unlocked Vault Files -->
+        <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
         <!-- Master ZIP Download CTA -->
-        <div style="margin-top: 32px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;">
+        <div style="margin-top: 28px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
           <a href="#" id="zipDownloadBtn" class="btn-cta btn-gold" style="display: inline-flex; width: auto; font-size: 1.1rem; padding: 16px 36px;" target="_blank" rel="noopener">
             <span id="zipBtnText" data-i18n="btnDownloadZip">📦 Descarregar Vault Completo (.ZIP)</span>
           </a>
-          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">
-            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">4.8 MB</strong>
+          <div style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+            <span data-i18n="dlFileSize">Tamanho Total:</span> <strong id="zipFileSizeVal" style="color: var(--primary-gold);">1.2 GB</strong>
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- All Unlocked Congratulations Banner -->
+        <div class="all-unlocked-banner" data-i18n="allUnlockedBadge">
+          ✨ PARABÉNS! TODOS OS FICHEIROS E VÍDEOS ESTÃO 100% DESBLOQUEADOS!
+        </div>
 
-    <!-- ORDER BUMP / UPSELL SECTION FOR OTHER PRODUCTS -->
-    <section id="order-bump-section">
-      <div class="order-bump-card">
-        <div class="bump-badge" data-i18n="orderBumpTag">🔥 OFERTA DE UPGRADE EXCLUSIVA (ORDER BUMP)</div>
-        <h2 class="bump-title" data-i18n="orderBumpTitle">Complete a sua Coleção com os Outros Pacotes</h2>
-        <p class="bump-subtitle" data-i18n="orderBumpSub">Adicione os pacotes adicionais com 1 clique:</p>
-        <div class="bump-grid" id="bumpGrid"></div>
       </div>
     </section>
 
@@ -167,7 +174,7 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "ultimate"; // Dedicated to Ultimate Vault Pack
+    const pkgId = "ultimate"; // Dedicated Ultimate Vault Pack (69,99 €)
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -188,7 +195,7 @@
 
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
-      const pkg = APP_CONFIG.packages.find(p => p.id === pkgId);
+      const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -199,10 +206,11 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      const grid = document.getElementById('fileDownloadsGrid');
-      grid.innerHTML = '';
+      // Render ALL Unlocked Vault Files
+      const unlockedGrid = document.getElementById('unlockedFilesGrid');
+      unlockedGrid.innerHTML = '';
 
-      pkg.files.forEach((file, index) => {
+      ultimatePkg.files.forEach((file, index) => {
         const card = document.createElement('div');
         card.className = `file-item-card ${index === 0 ? 'highlighted-item' : ''}`;
         let icon = '🎨';
@@ -220,41 +228,11 @@
             ${t.btnDownloadNow || 'DOWNLOAD'}
           </a>
         `;
-        grid.appendChild(card);
+        unlockedGrid.appendChild(card);
       });
 
-      document.getElementById('zipDownloadBtn').href = pkg.zipDownloadUrl;
-      document.getElementById('zipFileSizeVal').innerText = pkg.zipFileSize;
-
-      renderOrderBumps(t);
-    }
-
-    function renderOrderBumps(t) {
-      const bumpGrid = document.getElementById('bumpGrid');
-      bumpGrid.innerHTML = '';
-      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== pkgId);
-
-      otherPackages.forEach(pkg => {
-        const bumpCard = document.createElement('div');
-        bumpCard.className = 'bump-pkg-card';
-        let name = (pkg.id === 'starter') ? t.starterTitle : t.vipTitle;
-        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
-
-        bumpCard.innerHTML = `
-          <div class="bump-pkg-header">
-            <div class="bump-pkg-name">${name}</div>
-            <div class="bump-pkg-price">${priceFormatted}</div>
-            <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">
-              ✓ ${pkg.itemCount}
-            </div>
-          </div>
-          <a href="${pkg.stripeUrl}" class="bump-btn" target="_blank" rel="noopener">
-            <span>${t.btnOrderBump || '⚡ Adicionar este Pacote Agora'}</span>
-            <span>→</span>
-          </a>
-        `;
-        bumpGrid.appendChild(bumpCard);
-      });
+      document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
+      document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
     }
 
     function openModal(type) {
