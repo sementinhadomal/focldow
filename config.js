@@ -103,8 +103,7 @@ window.APP_CONFIG = {
       zipFileSize: "Acesso Direto ao Chat Privado da Modelo",
       itemCount: "Conversa Privada Direta com a Criadora + Acesso VIP",
       files: [
-        { name: "Pass_Acesso_Chat_Privado.pdf", size: "120 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
-        { name: "Instrucoes_Entrada_Canal_VIP.txt", size: "5 KB", url: "#" }
+        { name: "Pass_Acesso_Chat_Privado.pdf", size: "120 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
       ]
     }
   ],
