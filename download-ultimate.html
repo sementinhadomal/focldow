@@ -121,11 +121,11 @@
           </div>
         </div>
 
-        <!-- LOCKED PREMIUM EXTRA FILE SECTION -->
+        <!-- LOCKED PREMIUM EXTRA FILES SECTION -->
         <div class="locked-section-divider">
           <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
           <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
-            Desbloqueie o Passe Vitalício de Futuros Lançamentos em 1 clique:
+            Desbloqueie os colecionáveis bónus e pacotes futuros em 1 clique:
           </div>
 
           <div class="file-downloads-grid" id="lockedFilesGrid"></div>
@@ -167,7 +167,7 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "ultimate"; // Dedicated Ultimate Vault Pack (69,99 €)
+    const pkgId = "ultimate";
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -188,6 +188,7 @@
 
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
+      const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
       const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
 
       document.getElementById('currentFlag').innerText = t.flag;
@@ -227,19 +228,26 @@
       document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
 
-      // Render Premium Locked Extra Drops File
+      // Render Multiple Premium Locked Extra Drops Files
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
+      const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
       const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
 
       const lockedFiles = [
-        { name: "FUTURE_VIP_DROPS_AND_PRIVATE_VAULT.zip", size: "4.8 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício & Lançamentos Futuros" }
+        { name: "4K_RAW_UNRELEASED_BONUS_VIDEO.mp4", size: "1.8 GB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
+        { name: "FUTURE_VIP_DROPS_AND_PRIVATE_VAULT.zip", size: "4.8 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício" },
+        { name: "EXCLUSIVE_1ON1_CREATOR_ACCESS_GUIDE.pdf", size: "250 MB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
       ];
 
       lockedFiles.forEach(file => {
         const card = document.createElement('div');
         card.className = 'file-item-card locked-item';
+        let icon = '🔒';
+        if (file.name.endsWith('.mp4')) icon = '🎬';
+        if (file.name.endsWith('.pdf')) icon = '📄';
+
         card.innerHTML = `
           <div class="file-icon-box locked-icon">🔒</div>
           <div class="file-info-col">
