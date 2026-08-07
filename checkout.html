@@ -284,10 +284,10 @@
           btnText = t.btnGetVault;
         }
 
-        // Format price dynamically using fixed EUR base + USD conversion estimate
         const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
-        const stripeRedirect = `download.html?pkg=${pkg.id}&lang=${currentLang}`;
-        const stripeUrl = pkg.stripeUrl.startsWith('http') ? pkg.stripeUrl : stripeRedirect;
+        // Dedicated page redirect fallback links
+        const dedicatedPage = `download-${pkg.id}.html?lang=${currentLang}`;
+        const stripeUrl = pkg.stripeUrl.startsWith('http') ? pkg.stripeUrl : dedicatedPage;
 
         card.innerHTML = `
           ${pkg.badge ? `<div class="card-badge">${pkg.badge}</div>` : ''}
