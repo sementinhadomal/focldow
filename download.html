@@ -101,7 +101,7 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION (UNLOCKED & LOCKED FILE CARDS GRID) -->
+    <!-- "YOUR DOWNLOADS" SECTION -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
@@ -121,11 +121,11 @@
           </div>
         </div>
 
-        <!-- LOCKED PREMIUM FILES SECTION -->
+        <!-- EXACTLY 2 LOCKED CARDS FOR THE OTHER 2 PACKAGES -->
         <div class="locked-section-divider">
           <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
           <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
-            Desbloqueie os conteúdos superiores instantaneamente em 1 clique:
+            Desbloqueie as outras 2 opções de pacote instantaneamente em 1 clique:
           </div>
 
           <div class="file-downloads-grid" id="lockedFilesGrid"></div>
@@ -163,7 +163,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="config.js"></script>
   <script src="i18n.js"></script>
   <script>
@@ -189,12 +188,9 @@
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
       const urlParams = new URLSearchParams(window.location.search);
-      const pkgId = urlParams.get('pkg') || 'starter'; // Default to Starter to show locked cards
+      const pkgId = urlParams.get('pkg') || 'starter';
 
-      const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
-      const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
-      const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
-      const activePkg = APP_CONFIG.packages.find(p => p.id === pkgId) || starterPkg;
+      const activePkg = APP_CONFIG.packages.find(p => p.id === pkgId) || APP_CONFIG.packages[0];
 
       document.getElementById('currentFlag').innerText = t.flag;
       document.getElementById('currentLangLabel').innerText = t.langName;
@@ -205,7 +201,7 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      // Render Unlocked Files
+      // Render Unlocked Purchased Files
       const unlockedGrid = document.getElementById('unlockedFilesGrid');
       unlockedGrid.innerHTML = '';
 
@@ -232,46 +228,29 @@
       document.getElementById('zipDownloadBtn').href = activePkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = activePkg.zipFileSize;
 
-      // Render Locked Files
+      // Render EXACTLY 2 Locked Cards for the Other 2 Packages
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
-      const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
-      const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
+      const otherPackages = APP_CONFIG.packages.filter(p => p.id !== activePkg.id);
 
-      let lockedFiles = [];
+      otherPackages.forEach(pkg => {
+        const priceFormatted = APP_CONFIG.formatPrice(pkg.priceEUR, currentLang);
+        let titleName = pkg.name;
+        if (pkg.id === 'starter') titleName = t.starterTitle;
+        if (pkg.id === 'vip') titleName = t.vipTitle;
+        if (pkg.id === 'ultimate') titleName = t.ultimateTitle;
 
-      if (pkgId === 'starter') {
-        lockedFiles = [
-          { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-          { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-          { name: "Design sem nome.mp4", size: "30.4 MB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-          { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
-          { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
-        ];
-      } else if (pkgId === 'vip') {
-        lockedFiles = [
-          { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
-          { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
-        ];
-      } else {
-        // Ultimate Vault
-        lockedFiles = [
-          { name: "ULTIMATE_VIP_PRIVATE_DROPS_2026.zip", size: "4.5 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício" }
-        ];
-      }
-
-      lockedFiles.forEach(file => {
         const card = document.createElement('div');
         card.className = 'file-item-card locked-item';
         card.innerHTML = `
           <div class="file-icon-box locked-icon">🔒</div>
           <div class="file-info-col">
-            <div class="file-name-text" title="${file.name}">${file.name}</div>
-            <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
+            <div class="file-name-text" title="${titleName}">${titleName}</div>
+            <div class="file-size-text" style="color: var(--primary-gold);">${pkg.zipFileSize}</div>
           </div>
-          <a href="${file.url}" class="btn-file-unlock" target="_blank" rel="noopener">
-            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${file.price})
+          <a href="${pkg.stripeUrl}" class="btn-file-unlock" target="_blank" rel="noopener">
+            ${t.btnUnlockFile || '🔒 DESBLOQUEAR'} (${priceFormatted})
           </a>
         `;
         lockedGrid.appendChild(card);

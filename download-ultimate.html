@@ -101,14 +101,14 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION FOR ULTIMATE VAULT -->
+    <!-- "YOUR DOWNLOADS" SECTION -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Dynamic Grid of All Unlocked Vault Files -->
+        <!-- Grid of All Unlocked Vault Files -->
         <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
         <!-- Master ZIP Download CTA -->
@@ -121,11 +121,11 @@
           </div>
         </div>
 
-        <!-- LOCKED PREMIUM EXTRA FILES SECTION -->
+        <!-- EXACTLY 2 LOCKED CARDS FOR THE OTHER 2 PACKAGES -->
         <div class="locked-section-divider">
           <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
           <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
-            Desbloqueie os colecionáveis bónus e pacotes futuros em 1 clique:
+            Desbloqueie as outras 2 opções de pacote instantaneamente em 1 clique:
           </div>
 
           <div class="file-downloads-grid" id="lockedFilesGrid"></div>
@@ -167,7 +167,6 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "ultimate";
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -188,6 +187,7 @@
 
     function renderDashboard() {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt-PT'];
+      const starterPkg = APP_CONFIG.packages.find(p => p.id === 'starter');
       const vipPkg = APP_CONFIG.packages.find(p => p.id === 'vip');
       const ultimatePkg = APP_CONFIG.packages.find(p => p.id === 'ultimate');
 
@@ -228,26 +228,33 @@
       document.getElementById('zipDownloadBtn').href = ultimatePkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = ultimatePkg.zipFileSize;
 
-      // Render Multiple Premium Locked Extra Drops Files
+      // Render EXACTLY 2 Locked Cards for the Other 2 Packages (Deluxe VIP Pass & Starter HD Pack)
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
+      const priceStarter = APP_CONFIG.formatPrice(starterPkg.priceEUR, currentLang);
       const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
-      const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
 
-      const lockedFiles = [
-        { name: "4K_RAW_UNRELEASED_BONUS_VIDEO.mp4", size: "1.8 GB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-        { name: "FUTURE_VIP_DROPS_AND_PRIVATE_VAULT.zip", size: "4.8 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: "VIP Pass Vitalício" },
-        { name: "EXCLUSIVE_1ON1_CREATOR_ACCESS_GUIDE.pdf", size: "250 MB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
+      const lockedOtherPackages = [
+        {
+          name: "Design sem nome.mp4",
+          size: "35.2 MB",
+          pkgName: t.vipTitle,
+          price: priceVip,
+          url: vipPkg.stripeUrl
+        },
+        {
+          name: "STARTER_HD_PACK_BUNDLE.zip",
+          size: "2.8 MB",
+          pkgName: t.starterTitle,
+          price: priceStarter,
+          url: starterPkg.stripeUrl
+        }
       ];
 
-      lockedFiles.forEach(file => {
+      lockedOtherPackages.forEach(file => {
         const card = document.createElement('div');
         card.className = 'file-item-card locked-item';
-        let icon = '🔒';
-        if (file.name.endsWith('.mp4')) icon = '🎬';
-        if (file.name.endsWith('.pdf')) icon = '📄';
-
         card.innerHTML = `
           <div class="file-icon-box locked-icon">🔒</div>
           <div class="file-info-col">

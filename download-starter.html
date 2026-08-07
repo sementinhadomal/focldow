@@ -101,14 +101,14 @@
       </div>
     </section>
 
-    <!-- "YOUR DOWNLOADS" SECTION (UNLOCKED & LOCKED FILE CARDS GRID) -->
+    <!-- "YOUR DOWNLOADS" SECTION -->
     <section id="downloads-section" style="scroll-margin-top: 80px;">
       <div class="downloads-panel-card">
         
         <div class="downloads-green-tag" data-i18n="yourDownloadsHeader">YOUR DOWNLOADS</div>
         <div class="downloads-subtitle" data-i18n="accessFilesInstantly">Access your files instantly</div>
 
-        <!-- Grid of Unlocked Purchased Files -->
+        <!-- Grid of Unlocked Starter Pack Files -->
         <div class="file-downloads-grid" id="unlockedFilesGrid"></div>
 
         <!-- Master ZIP Download CTA -->
@@ -121,11 +121,11 @@
           </div>
         </div>
 
-        <!-- LOCKED PREMIUM FILES SECTION (INTEGRATED ORDER BUMP GRID) -->
+        <!-- EXACTLY 2 LOCKED CARDS FOR THE OTHER 2 PACKAGES -->
         <div class="locked-section-divider">
           <div class="locked-header-tag" data-i18n="lockedSectionTitle">🔒 FICHEIROS PREMIUM BLOQUEADOS (UPGRADES DISPONÍVEIS)</div>
           <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;" data-i18n="lockedSectionSub">
-            Desbloqueie os conteúdos superiores instantaneamente em 1 clique:
+            Desbloqueie as outras 2 opções de pacote instantaneamente em 1 clique:
           </div>
 
           <div class="file-downloads-grid" id="lockedFilesGrid"></div>
@@ -167,7 +167,6 @@
   <script src="i18n.js"></script>
   <script>
     let currentLang = localStorage.getItem('user_lang') || APP_CONFIG.defaultLang;
-    const pkgId = "starter"; // Dedicated Starter Pack (19,99 €)
 
     function toggleLangDropdown() { document.getElementById('langDropdown').classList.toggle('show'); }
 
@@ -201,7 +200,7 @@
         if (t[key]) { el.innerText = t[key]; }
       });
 
-      // Render Unlocked Files (Starter Pack items)
+      // Render Unlocked Starter Pack Files
       const unlockedGrid = document.getElementById('unlockedFilesGrid');
       unlockedGrid.innerHTML = '';
 
@@ -224,28 +223,37 @@
       document.getElementById('zipDownloadBtn').href = starterPkg.zipDownloadUrl;
       document.getElementById('zipFileSizeVal').innerText = starterPkg.zipFileSize;
 
-      // Render Locked Files (Items from VIP Deluxe and Ultimate Vault)
+      // Render EXACTLY 2 Locked Cards for the Other 2 Packages (VIP & Ultimate)
       const lockedGrid = document.getElementById('lockedFilesGrid');
       lockedGrid.innerHTML = '';
 
       const priceVip = APP_CONFIG.formatPrice(vipPkg.priceEUR, currentLang);
       const priceUltimate = APP_CONFIG.formatPrice(ultimatePkg.priceEUR, currentLang);
 
-      const lockedFiles = [
-        { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-        { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-        { name: "Design sem nome.mp4", size: "30.4 MB", price: priceVip, url: vipPkg.stripeUrl, pkgName: t.vipTitle },
-        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle },
-        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", price: priceUltimate, url: ultimatePkg.stripeUrl, pkgName: t.ultimateTitle }
+      const lockedOtherPackages = [
+        {
+          name: "Design sem nome.mp4",
+          size: "35.2 MB",
+          pkgName: t.vipTitle,
+          price: priceVip,
+          url: vipPkg.stripeUrl,
+          icon: "🎬"
+        },
+        {
+          name: "ULTIMATE_VAULT_BONUS_MEDIA.zip",
+          size: "1.2 GB",
+          pkgName: t.ultimateTitle,
+          price: priceUltimate,
+          url: ultimatePkg.stripeUrl,
+          icon: "📦"
+        }
       ];
 
-      lockedFiles.forEach(file => {
+      lockedOtherPackages.forEach(file => {
         const card = document.createElement('div');
         card.className = 'file-item-card locked-item';
-        let icon = '🔒';
-
         card.innerHTML = `
-          <div class="file-icon-box locked-icon">${icon}</div>
+          <div class="file-icon-box locked-icon">🔒</div>
           <div class="file-info-col">
             <div class="file-name-text" title="${file.name}">${file.name}</div>
             <div class="file-size-text" style="color: var(--primary-gold);">${file.size} — ${file.pkgName}</div>
