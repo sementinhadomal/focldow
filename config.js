@@ -1,6 +1,6 @@
 /**
  * VIP / Creator Media Digital Checkout & Delivery Hub Configuration
- * Base Currency: EUR (€) - 4 Tiers with unique deliverable files, prices, and private chat access.
+ * Base Currency: EUR (€) - Media quantities instead of file byte sizes.
  */
 
 window.APP_CONFIG = {
@@ -22,7 +22,7 @@ window.APP_CONFIG = {
       avatar: "./assets/avatar.jpg",
       banner: "./assets/banner.jpg",
       verified: true,
-      privateChatUrl: "https://t.me/sophia_vip_private_chat", // Link do Chat Privado da Modelo
+      privateChatUrl: "https://t.me/sophia_vip_private_chat",
       bio: {
         "pt-PT": "Dashboard oficial de entrega de conteúdos digitais, pacotes de fotos HD e coleções de vídeo de alta resolução.",
         "en": "Official digital product delivery dashboard for exclusive HD media packs and video collections.",
@@ -34,7 +34,6 @@ window.APP_CONFIG = {
     }
   },
 
-  // 4 Product Tiers: Starter, VIP, Ultimate Vault, and 1-on-1 Private Chat Pass
   packages: [
     {
       id: "starter",
@@ -44,12 +43,12 @@ window.APP_CONFIG = {
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_starter_link",
       zipDownloadUrl: "./CLEAN_GRADE_LUT.cube",
-      zipFileSize: "2.8 MB (Pacote Inicial)",
-      itemCount: "3 LUTs Presets HD Básicos",
+      zipFileSize: "25 Conteúdos HD Selecionados",
+      itemCount: "25 Fotos e Ficheiros HD Selecionados",
       files: [
-        { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
-        { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
-        { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" }
+        { name: "CLEAN_GRADE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./CLEAN_GRADE_LUT.cube" },
+        { name: "SUNSET_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./SUNSET_LUT.cube" },
+        { name: "ALTITUDE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./ALTITUDE_LUT.cube" }
       ]
     },
     {
@@ -60,15 +59,15 @@ window.APP_CONFIG = {
       isHighlighted: true,
       stripeUrl: "https://buy.stripe.com/test_vip_link",
       zipDownloadUrl: "./Design sem nome.mp4",
-      zipFileSize: "35.2 MB (Pacote Deluxe + Vídeo)",
-      itemCount: "5 LUTs Presets HD + Vídeo Exclusivo HD",
+      zipFileSize: "60 Conteúdos HD + Vídeos Exclusivos",
+      itemCount: "60 Fotos HD + Coleção de Vídeos 4K",
       files: [
-        { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
-        { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
-        { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" },
-        { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", url: "./TEAL_AND_ORANGE_LUT.cube" },
-        { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", url: "./VINTAGE_GREEN_LUT.cube" },
-        { name: "Design sem nome.mp4", size: "30.4 MB", url: "./Design sem nome.mp4" }
+        { name: "CLEAN_GRADE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./CLEAN_GRADE_LUT.cube" },
+        { name: "SUNSET_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./SUNSET_LUT.cube" },
+        { name: "ALTITUDE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./ALTITUDE_LUT.cube" },
+        { name: "TEAL_AND_ORANGE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./TEAL_AND_ORANGE_LUT.cube" },
+        { name: "VINTAGE_GREEN_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./VINTAGE_GREEN_LUT.cube" },
+        { name: "Design sem nome.mp4", size: "Vídeo 4K Ultra HD", url: "./Design sem nome.mp4" }
       ]
     },
     {
@@ -79,17 +78,17 @@ window.APP_CONFIG = {
       isHighlighted: false,
       stripeUrl: "https://buy.stripe.com/test_ultimate_link",
       zipDownloadUrl: "./LUT_Guide_and_Video_Tutorial.pdf",
-      zipFileSize: "1.2 GB (Vault Completo All-Access)",
-      itemCount: "Acervo Completo 5 LUTs + Vídeos + Guia PDF + Bónus Vault",
+      zipFileSize: "120+ Conteúdos HD + Acervo Completo Vault",
+      itemCount: "120+ Mídias + Vídeos + Guia Exclusivo + Bónus",
       files: [
-        { name: "CLEAN_GRADE_LUT.cube", size: "947 KB", url: "./CLEAN_GRADE_LUT.cube" },
-        { name: "SUNSET_LUT.cube", size: "947 KB", url: "./SUNSET_LUT.cube" },
-        { name: "ALTITUDE_LUT.cube", size: "947 KB", url: "./ALTITUDE_LUT.cube" },
-        { name: "TEAL_AND_ORANGE_LUT.cube", size: "947 KB", url: "./TEAL_AND_ORANGE_LUT.cube" },
-        { name: "VINTAGE_GREEN_LUT.cube", size: "947 KB", url: "./VINTAGE_GREEN_LUT.cube" },
-        { name: "Design sem nome.mp4", size: "30.4 MB", url: "./Design sem nome.mp4" },
-        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "108 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
-        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "1.2 GB", url: "#" }
+        { name: "CLEAN_GRADE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./CLEAN_GRADE_LUT.cube" },
+        { name: "SUNSET_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./SUNSET_LUT.cube" },
+        { name: "ALTITUDE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./ALTITUDE_LUT.cube" },
+        { name: "TEAL_AND_ORANGE_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./TEAL_AND_ORANGE_LUT.cube" },
+        { name: "VINTAGE_GREEN_LUT.cube", size: "Ficheiro HD Exclusivo", url: "./VINTAGE_GREEN_LUT.cube" },
+        { name: "Design sem nome.mp4", size: "Vídeo 4K Ultra HD", url: "./Design sem nome.mp4" },
+        { name: "LUT_Guide_and_Video_Tutorial.pdf", size: "Guia Exclusivo PDF", url: "./LUT_Guide_and_Video_Tutorial.pdf" },
+        { name: "ULTIMATE_VAULT_BONUS_MEDIA.zip", size: "Acervo Completo Vault", url: "#" }
       ]
     },
     {
@@ -103,7 +102,7 @@ window.APP_CONFIG = {
       zipFileSize: "Acesso Direto ao Chat Privado da Modelo",
       itemCount: "Conversa Privada Direta com a Criadora + Acesso VIP",
       files: [
-        { name: "Pass_Acesso_Chat_Privado.pdf", size: "120 KB", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
+        { name: "Pass_Acesso_Chat_Privado.pdf", size: "Acesso Direto Chat 1-on-1", url: "./LUT_Guide_and_Video_Tutorial.pdf" }
       ]
     }
   ],
